@@ -10,6 +10,7 @@ import ThemeButtons from "./ThemeButtons";
 
 export default function Map({ data }) {
   const pubData = data.rows;
+  console.log(pubData);
 
   const [themes, setTheme] = useState({
     light: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -31,7 +32,7 @@ export default function Map({ data }) {
     useState(false);
 
   const icon = L.icon({ iconUrl: "./images/pubIcon.png", iconSize: [30, 30] });
-  const position = [52.205447, 0.128666];
+  const position = [57.14621, -2.095969];
 
   const getRandomPubs = (pubs, pubCoordinates) => {
     setEightPubs(pubs);

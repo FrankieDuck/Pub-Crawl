@@ -8,6 +8,7 @@ import OpacitySlider from "./OpacitySlider";
 import ShowRouteButton from "./ShowRouteButton";
 import GetRouteButton from "./GetRouteButton";
 import ShowAllPubsButton from "./ShowAllPubsButton";
+import SearchBar from "./SearchBar";
 
 export default function MapControlAccordion({
   pubData,
@@ -31,6 +32,7 @@ export default function MapControlAccordion({
         <AccordionDetails>
           <Typography>Interact with the map using these controls</Typography>
         </AccordionDetails>
+        <SearchBar />
         <OpacitySlider getOpacityLevel={getOpacityLevel} />
         <div
           style={{
