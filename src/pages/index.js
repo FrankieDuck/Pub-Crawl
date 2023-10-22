@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
+import { SnackbarProvider } from "notistack";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,15 +17,23 @@ const Map = dynamic(
 export default function Home({ data }) {
   return (
     <>
-      <Map data={data} />
+      <SnackbarProvider
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        autoHideDuration={2000}
+        maxSnack={1}
+      >
+        <Map data={data} />
+      </SnackbarProvider>
     </>
   );
 }
 
-const county = "Aberdeen City"; // Replace 'Essex' with the desired county
+const county = "Aberdeen City";
 
 export async function getStaticProps() {
-  // Make the API GET request
   const response = await fetch(`http://localhost:3001/pubs?county=${county}`);
   const data = await response.json();
   console.log(data);

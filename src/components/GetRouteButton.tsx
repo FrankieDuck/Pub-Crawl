@@ -1,13 +1,13 @@
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-export default function GetRouteButton({ pubData, getRandomPubs }) {
+export default function GetRouteButton({ newPubData, getRandomPubs }) {
   const pickEightPubs = (data, count) => {
     if (count > data.length) {
-      console.log("Error: Count cannot be greater than array length.");
       return [];
     }
-    const shuffledArray = [...data].sort(() => Math.random() - 0.5);
+    console.log("this is the data", data);
+    const shuffledArray = [...data.rows].sort(() => Math.random() - 0.5);
 
     const coordinatesArray = shuffledArray
       .slice(0, count)
@@ -33,7 +33,7 @@ export default function GetRouteButton({ pubData, getRandomPubs }) {
   return (
     <Stack direction="row" spacing={2}>
       <Button
-        onClick={() => pickEightPubs(pubData, 8)}
+        onClick={() => pickEightPubs(newPubData, 8)}
         variant="contained"
         style={{ width: "150px" }}
       >

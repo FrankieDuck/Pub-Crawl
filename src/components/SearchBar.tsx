@@ -1,22 +1,21 @@
-import * as React from "react";
-import { useState } from "react";
+import React from "react";
 import TextField from "@mui/material/TextField";
 
-export default function SearchBar() {
-  const [textFieldValue, setTextFieldValue] = useState("");
-  console.log(textFieldValue);
+export default function BasicTextFields({ getCountyValue }) {
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      const inputValue = e.target.value;
+      const capitalizedValue =
+        inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
 
-  const handleTextFieldChange = (e) => {
-    setTextFieldValue(e.target.value);
+      e.preventDefault();
+      getCountyValue(capitalizedValue);
+    }
   };
 
   return (
-    <TextField
-      id="outlined-basic"
-      label="Search"
-      variant="outlined"
-      onChange={handleTextFieldChange}
-      value={textFieldValue}
-    />
+    <form noValidate autoComplete="off">
+      <TextField id="standard-basic" label="Standard" onKeyPress={onKeyPress} />
+    </form>
   );
 }

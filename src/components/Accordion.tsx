@@ -18,6 +18,8 @@ export default function MapControlAccordion({
   getOpacityLevel,
   eightPubs,
   getAllMarkerVisibility,
+  getCountyValue,
+  newPubData
 }) {
   return (
     <div>
@@ -32,7 +34,7 @@ export default function MapControlAccordion({
         <AccordionDetails>
           <Typography>Interact with the map using these controls</Typography>
         </AccordionDetails>
-        <SearchBar />
+        <SearchBar getCountyValue={getCountyValue}/>
         <OpacitySlider getOpacityLevel={getOpacityLevel} />
         <div
           style={{
@@ -44,7 +46,7 @@ export default function MapControlAccordion({
             paddingBottom: "15px",
           }}
         >
-          <GetRouteButton pubData={pubData} getRandomPubs={getRandomPubs} />
+          <GetRouteButton newPubData={newPubData} getRandomPubs={getRandomPubs} />
           <ShowRouteButton
             toggleVisibility={toggleVisibility}
             eightRouteMarkersVisible={eightRouteMarkersVisible}
