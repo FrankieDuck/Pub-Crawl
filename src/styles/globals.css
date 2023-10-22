@@ -124,7 +124,7 @@ a {
   }
 }
 
-ul {
+.theme-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -133,13 +133,13 @@ ul {
   margin-top: 10px;
 }
 
-li {
+.theme-item {
   list-style: none;
   margin: 0 15px;
   cursor: pointer;
 }
 
-li {
+.theme-item {
   position: relative;
   display: block;
   height: 50px;

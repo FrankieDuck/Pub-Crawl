@@ -14,9 +14,9 @@ export default function ThemeButtons({ handleThemeMode }) {
 
   return (
     <Card style={{ paddingBottom: "12px", background: "#c5cad1" }}>
-      <ul>
+      <ul className="theme-list">
         {themes.map((theme) => (
-          <li
+          <li className="theme-item"
             key={theme.name}
             style={{ "--color": theme.color }}
             onClick={() => handleThemeMode(theme.name)}

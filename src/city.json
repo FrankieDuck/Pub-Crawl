@@ -1,0 +1,1442 @@
+[
+  {
+    "label": "Conwy",
+    "value": "Conwy"
+  },
+  {
+    "label": "Glasgow City",
+    "value": "Glasgow City"
+  },
+  {
+    "label": "Babergh",
+    "value": "Babergh"
+  },
+  {
+    "label": "Hertsmere",
+    "value": "Hertsmere"
+  },
+  {
+    "label": "West Lothian",
+    "value": "West Lothian"
+  },
+  {
+    "label": "East Cambridgeshire",
+    "value": "East Cambridgeshire"
+  },
+  {
+    "label": "Swale",
+    "value": "Swale"
+  },
+  {
+    "label": "Wealden",
+    "value": "Wealden"
+  },
+  {
+    "label": "Gedling",
+    "value": "Gedling"
+  },
+  {
+    "label": "Leeds",
+    "value": "Leeds"
+  },
+  {
+    "label": "Kirklees",
+    "value": "Kirklees"
+  },
+  {
+    "label": "Oldham",
+    "value": "Oldham"
+  },
+  {
+    "label": "Hounslow",
+    "value": "Hounslow"
+  },
+  {
+    "label": "Stockport",
+    "value": "Stockport"
+  },
+  {
+    "label": "Hillingdon",
+    "value": "Hillingdon"
+  },
+  {
+    "label": "Dudley",
+    "value": "Dudley"
+  },
+  {
+    "label": "Wyre Forest",
+    "value": "Wyre Forest"
+  },
+  {
+    "label": "North Lincolnshire",
+    "value": "North Lincolnshire"
+  },
+  {
+    "label": "Angus",
+    "value": "Angus"
+  },
+  {
+    "label": "West Dunbartonshire",
+    "value": "West Dunbartonshire"
+  },
+  {
+    "label": "St. Helens",
+    "value": "St. Helens"
+  },
+  {
+    "label": "Gwynedd",
+    "value": "Gwynedd"
+  },
+  {
+    "label": "Slough",
+    "value": "Slough"
+  },
+  {
+    "label": "Fenland",
+    "value": "Fenland"
+  },
+  {
+    "label": "Bedford",
+    "value": "Bedford"
+  },
+  {
+    "label": "Wirral",
+    "value": "Wirral"
+  },
+  {
+    "label": "East Lothian",
+    "value": "East Lothian"
+  },
+  {
+    "label": "Wolverhampton",
+    "value": "Wolverhampton"
+  },
+  {
+    "label": "Newport",
+    "value": "Newport"
+  },
+  {
+    "label": "South Hams",
+    "value": "South Hams"
+  },
+  {
+    "label": "Isle of Wight",
+    "value": "Isle of Wight"
+  },
+  {
+    "label": "Gravesham",
+    "value": "Gravesham"
+  },
+  {
+    "label": "Barnet",
+    "value": "Barnet"
+  },
+  {
+    "label": "Bradford",
+    "value": "Bradford"
+  },
+  {
+    "label": "High Peak",
+    "value": "High Peak"
+  },
+  {
+    "label": "Newcastle upon Tyne",
+    "value": "Newcastle upon Tyne"
+  },
+  {
+    "label": "East Renfrewshire",
+    "value": "East Renfrewshire"
+  },
+  {
+    "label": "Leicester",
+    "value": "Leicester"
+  },
+  {
+    "label": "Blackburn with Darwen",
+    "value": "Blackburn with Darwen"
+  },
+  {
+    "label": "Braintree",
+    "value": "Braintree"
+  },
+  {
+    "label": "Tendring",
+    "value": "Tendring"
+  },
+  {
+    "label": "Amber Valley",
+    "value": "Amber Valley"
+  },
+  {
+    "label": "Pembrokeshire",
+    "value": "Pembrokeshire"
+  },
+  {
+    "label": "Herefordshire, County of",
+    "value": "Herefordshire, County of"
+  },
+  {
+    "label": "Central Bedfordshire",
+    "value": "Central Bedfordshire"
+  },
+  {
+    "label": "West Northamptonshire",
+    "value": "West Northamptonshire"
+  },
+  {
+    "label": "Stockton-on-Tees",
+    "value": "Stockton-on-Tees"
+  },
+  {
+    "label": "Medway",
+    "value": "Medway"
+  },
+  {
+    "label": "East Staffordshire",
+    "value": "East Staffordshire"
+  },
+  {
+    "label": "Erewash",
+    "value": "Erewash"
+  },
+  {
+    "label": "Great Yarmouth",
+    "value": "Great Yarmouth"
+  },
+  {
+    "label": "South Ribble",
+    "value": "South Ribble"
+  },
+  {
+    "label": "Cheshire East",
+    "value": "Cheshire East"
+  },
+  {
+    "label": "Exeter",
+    "value": "Exeter"
+  },
+  {
+    "label": "West Devon",
+    "value": "West Devon"
+  },
+  {
+    "label": "Shropshire",
+    "value": "Shropshire"
+  },
+  {
+    "label": "Rotherham",
+    "value": "Rotherham"
+  },
+  {
+    "label": "South Lakeland",
+    "value": "South Lakeland"
+  },
+  {
+    "label": "Dover",
+    "value": "Dover"
+  },
+  {
+    "label": "Wrexham",
+    "value": "Wrexham"
+  },
+  {
+    "label": "Gosport",
+    "value": "Gosport"
+  },
+  {
+    "label": "South Derbyshire",
+    "value": "South Derbyshire"
+  },
+  {
+    "label": "Coventry",
+    "value": "Coventry"
+  },
+  {
+    "label": "Southend-on-Sea",
+    "value": "Southend-on-Sea"
+  },
+  {
+    "label": "Bury",
+    "value": "Bury"
+  },
+  {
+    "label": "Northumberland",
+    "value": "Northumberland"
+  },
+  {
+    "label": "North Hertfordshire",
+    "value": "North Hertfordshire"
+  },
+  {
+    "label": "Havering",
+    "value": "Havering"
+  },
+  {
+    "label": "Hart",
+    "value": "Hart"
+  },
+  {
+    "label": "Gateshead",
+    "value": "Gateshead"
+  },
+  {
+    "label": "East Dunbartonshire",
+    "value": "East Dunbartonshire"
+  },
+  {
+    "label": "Sheffield",
+    "value": "Sheffield"
+  },
+  {
+    "label": "Hackney",
+    "value": "Hackney"
+  },
+  {
+    "label": "Wokingham",
+    "value": "Wokingham"
+  },
+  {
+    "label": "Islington",
+    "value": "Islington"
+  },
+  {
+    "label": "Gloucester",
+    "value": "Gloucester"
+  },
+  {
+    "label": "Bristol, City of",
+    "value": "Bristol, City of"
+  },
+  {
+    "label": "South Lanarkshire",
+    "value": "South Lanarkshire"
+  },
+  {
+    "label": "Windsor and Maidenhead",
+    "value": "Windsor and Maidenhead"
+  },
+  {
+    "label": "City of London",
+    "value": "City of London"
+  },
+  {
+    "label": "Shetland Islands",
+    "value": "Shetland Islands"
+  },
+  {
+    "label": "Mid Devon",
+    "value": "Mid Devon"
+  },
+  {
+    "label": "Halton",
+    "value": "Halton"
+  },
+  {
+    "label": "Waverley",
+    "value": "Waverley"
+  },
+  {
+    "label": "Selby",
+    "value": "Selby"
+  },
+  {
+    "label": "Pendle",
+    "value": "Pendle"
+  },
+  {
+    "label": "Hinckley and Bosworth",
+    "value": "Hinckley and Bosworth"
+  },
+  {
+    "label": "West Berkshire",
+    "value": "West Berkshire"
+  },
+  {
+    "label": "Cambridge",
+    "value": "Cambridge"
+  },
+  {
+    "label": "Tamworth",
+    "value": "Tamworth"
+  },
+  {
+    "label": "Na h-Eileanan Siar",
+    "value": "Na h-Eileanan Siar"
+  },
+  {
+    "label": "Tewkesbury",
+    "value": "Tewkesbury"
+  },
+  {
+    "label": "Stroud",
+    "value": "Stroud"
+  },
+  {
+    "label": "Knowsley",
+    "value": "Knowsley"
+  },
+  {
+    "label": "Cherwell",
+    "value": "Cherwell"
+  },
+  {
+    "label": "Bath and North East Somerset",
+    "value": "Bath and North East Somerset"
+  },
+  {
+    "label": "South Cambridgeshire",
+    "value": "South Cambridgeshire"
+  },
+  {
+    "label": "Epping Forest",
+    "value": "Epping Forest"
+  },
+  {
+    "label": "Broxtowe",
+    "value": "Broxtowe"
+  },
+  {
+    "label": "Derby",
+    "value": "Derby"
+  },
+  {
+    "label": "Rushmoor",
+    "value": "Rushmoor"
+  },
+  {
+    "label": "Neath Port Talbot",
+    "value": "Neath Port Talbot"
+  },
+  {
+    "label": "Bromsgrove",
+    "value": "Bromsgrove"
+  },
+  {
+    "label": "Richmond upon Thames",
+    "value": "Richmond upon Thames"
+  },
+  {
+    "label": "Solihull",
+    "value": "Solihull"
+  },
+  {
+    "label": "Reigate and Banstead",
+    "value": "Reigate and Banstead"
+  },
+  {
+    "label": "North Warwickshire",
+    "value": "North Warwickshire"
+  },
+  {
+    "label": "Telford and Wrekin",
+    "value": "Telford and Wrekin"
+  },
+  {
+    "label": "Chorley",
+    "value": "Chorley"
+  },
+  {
+    "label": "Warrington",
+    "value": "Warrington"
+  },
+  {
+    "label": "Sandwell",
+    "value": "Sandwell"
+  },
+  {
+    "label": "Sevenoaks",
+    "value": "Sevenoaks"
+  },
+  {
+    "label": "Bexley",
+    "value": "Bexley"
+  },
+  {
+    "label": "Worcester",
+    "value": "Worcester"
+  },
+  {
+    "label": "Welwyn Hatfield",
+    "value": "Welwyn Hatfield"
+  },
+  {
+    "label": "Peterborough",
+    "value": "Peterborough"
+  },
+  {
+    "label": "Epsom and Ewell",
+    "value": "Epsom and Ewell"
+  },
+  {
+    "label": "Sefton",
+    "value": "Sefton"
+  },
+  {
+    "label": "Stoke-on-Trent",
+    "value": "Stoke-on-Trent"
+  },
+  {
+    "label": "Hastings",
+    "value": "Hastings"
+  },
+  {
+    "label": "Boston",
+    "value": "Boston"
+  },
+  {
+    "label": "Barking and Dagenham",
+    "value": "Barking and Dagenham"
+  },
+  {
+    "label": "Brent",
+    "value": "Brent"
+  },
+  {
+    "label": "North Ayrshire",
+    "value": "North Ayrshire"
+  },
+  {
+    "label": "Enfield",
+    "value": "Enfield"
+  },
+  {
+    "label": "Rhondda Cynon Taf",
+    "value": "Rhondda Cynon Taf"
+  },
+  {
+    "label": "Scottish Borders",
+    "value": "Scottish Borders"
+  },
+  {
+    "label": "Rochford",
+    "value": "Rochford"
+  },
+  {
+    "label": "Newham",
+    "value": "Newham"
+  },
+  {
+    "label": "Harrogate",
+    "value": "Harrogate"
+  },
+  {
+    "label": "Horsham",
+    "value": "Horsham"
+  },
+  {
+    "label": "Eastleigh",
+    "value": "Eastleigh"
+  },
+  {
+    "label": "Vale of White Horse",
+    "value": "Vale of White Horse"
+  },
+  {
+    "label": "Charnwood",
+    "value": "Charnwood"
+  },
+  {
+    "label": "Carmarthenshire",
+    "value": "Carmarthenshire"
+  },
+  {
+    "label": "Rutland",
+    "value": "Rutland"
+  },
+  {
+    "label": "Kingston upon Thames",
+    "value": "Kingston upon Thames"
+  },
+  {
+    "label": "Arun",
+    "value": "Arun"
+  },
+  {
+    "label": "Chichester",
+    "value": "Chichester"
+  },
+  {
+    "label": "Buckinghamshire",
+    "value": "Buckinghamshire"
+  },
+  {
+    "label": "Blaenau Gwent",
+    "value": "Blaenau Gwent"
+  },
+  {
+    "label": "Winchester",
+    "value": "Winchester"
+  },
+  {
+    "label": "Reading",
+    "value": "Reading"
+  },
+  {
+    "label": "Merton",
+    "value": "Merton"
+  },
+  {
+    "label": "Bracknell Forest",
+    "value": "Bracknell Forest"
+  },
+  {
+    "label": "South Staffordshire",
+    "value": "South Staffordshire"
+  },
+  {
+    "label": "South Ayrshire",
+    "value": "South Ayrshire"
+  },
+  {
+    "label": "Tower Hamlets",
+    "value": "Tower Hamlets"
+  },
+  {
+    "label": "Barnsley",
+    "value": "Barnsley"
+  },
+  {
+    "label": "Stratford-on-Avon",
+    "value": "Stratford-on-Avon"
+  },
+  {
+    "label": "Ashfield",
+    "value": "Ashfield"
+  },
+  {
+    "label": "Copeland",
+    "value": "Copeland"
+  },
+  {
+    "label": "Basingstoke and Deane",
+    "value": "Basingstoke and Deane"
+  },
+  {
+    "label": "Lewisham",
+    "value": "Lewisham"
+  },
+  {
+    "label": "Caerphilly",
+    "value": "Caerphilly"
+  },
+  {
+    "label": "Bridgend",
+    "value": "Bridgend"
+  },
+  {
+    "label": "Tonbridge and Malling",
+    "value": "Tonbridge and Malling"
+  },
+  {
+    "label": "Hartlepool",
+    "value": "Hartlepool"
+  },
+  {
+    "label": "Bolsover",
+    "value": "Bolsover"
+  },
+  {
+    "label": "East Lindsey",
+    "value": "East Lindsey"
+  },
+  {
+    "label": "Mid Sussex",
+    "value": "Mid Sussex"
+  },
+  {
+    "label": "East Riding of Yorkshire",
+    "value": "East Riding of Yorkshire"
+  },
+  {
+    "label": "Bournemouth, Christchurch and Poole",
+    "value": "Bournemouth, Christchurch and Poole"
+  },
+  {
+    "label": "Fareham",
+    "value": "Fareham"
+  },
+  {
+    "label": "Brentwood",
+    "value": "Brentwood"
+  },
+  {
+    "label": "Basildon",
+    "value": "Basildon"
+  },
+  {
+    "label": "Norwich",
+    "value": "Norwich"
+  },
+  {
+    "label": "Liverpool",
+    "value": "Liverpool"
+  },
+  {
+    "label": "County Durham",
+    "value": "County Durham"
+  },
+  {
+    "label": "Haringey",
+    "value": "Haringey"
+  },
+  {
+    "label": "Walsall",
+    "value": "Walsall"
+  },
+  {
+    "label": "Harrow",
+    "value": "Harrow"
+  },
+  {
+    "label": "Harborough",
+    "value": "Harborough"
+  },
+  {
+    "label": "Wiltshire",
+    "value": "Wiltshire"
+  },
+  {
+    "label": "Midlothian",
+    "value": "Midlothian"
+  },
+  {
+    "label": "Richmondshire",
+    "value": "Richmondshire"
+  },
+  {
+    "label": "Swindon",
+    "value": "Swindon"
+  },
+  {
+    "label": "Milton Keynes",
+    "value": "Milton Keynes"
+  },
+  {
+    "label": "Melton",
+    "value": "Melton"
+  },
+  {
+    "label": "Renfrewshire",
+    "value": "Renfrewshire"
+  },
+  {
+    "label": "Birmingham",
+    "value": "Birmingham"
+  },
+  {
+    "label": "Broxbourne",
+    "value": "Broxbourne"
+  },
+  {
+    "label": "Trafford",
+    "value": "Trafford"
+  },
+  {
+    "label": "Salford",
+    "value": "Salford"
+  },
+  {
+    "label": "Ryedale",
+    "value": "Ryedale"
+  },
+  {
+    "label": "Brighton and Hove",
+    "value": "Brighton and Hove"
+  },
+  {
+    "label": "Blackpool",
+    "value": "Blackpool"
+  },
+  {
+    "label": "South Kesteven",
+    "value": "South Kesteven"
+  },
+  {
+    "label": "Portsmouth",
+    "value": "Portsmouth"
+  },
+  {
+    "label": "Stevenage",
+    "value": "Stevenage"
+  },
+  {
+    "label": "West Lindsey",
+    "value": "West Lindsey"
+  },
+  {
+    "label": "Lichfield",
+    "value": "Lichfield"
+  },
+  {
+    "label": "Lewes",
+    "value": "Lewes"
+  },
+  {
+    "label": "New Forest",
+    "value": "New Forest"
+  },
+  {
+    "label": "Perth and Kinross",
+    "value": "Perth and Kinross"
+  },
+  {
+    "label": "Westminster",
+    "value": "Westminster"
+  },
+  {
+    "label": "Denbighshire",
+    "value": "Denbighshire"
+  },
+  {
+    "label": "Darlington",
+    "value": "Darlington"
+  },
+  {
+    "label": "Merthyr Tydfil",
+    "value": "Merthyr Tydfil"
+  },
+  {
+    "label": "Craven",
+    "value": "Craven"
+  },
+  {
+    "label": "Teignbridge",
+    "value": "Teignbridge"
+  },
+  {
+    "label": "Fife",
+    "value": "Fife"
+  },
+  {
+    "label": "Mid Suffolk",
+    "value": "Mid Suffolk"
+  },
+  {
+    "label": "Elmbridge",
+    "value": "Elmbridge"
+  },
+  {
+    "label": "Huntingdonshire",
+    "value": "Huntingdonshire"
+  },
+  {
+    "label": "Swansea",
+    "value": "Swansea"
+  },
+  {
+    "label": "Surrey Heath",
+    "value": "Surrey Heath"
+  },
+  {
+    "label": "Torridge",
+    "value": "Torridge"
+  },
+  {
+    "label": "Cardiff",
+    "value": "Cardiff"
+  },
+  {
+    "label": "South Somerset",
+    "value": "South Somerset"
+  },
+  {
+    "label": "Aberdeenshire",
+    "value": "Aberdeenshire"
+  },
+  {
+    "label": "North Northamptonshire",
+    "value": "North Northamptonshire"
+  },
+  {
+    "label": "South Oxfordshire",
+    "value": "South Oxfordshire"
+  },
+  {
+    "label": "Newark and Sherwood",
+    "value": "Newark and Sherwood"
+  },
+  {
+    "label": "Thanet",
+    "value": "Thanet"
+  },
+  {
+    "label": "Wandsworth",
+    "value": "Wandsworth"
+  },
+  {
+    "label": "Aberdeen City",
+    "value": "Aberdeen City"
+  },
+  {
+    "label": "Lincoln",
+    "value": "Lincoln"
+  },
+  {
+    "label": "Isle of Anglesey",
+    "value": "Isle of Anglesey"
+  },
+  {
+    "label": "Nuneaton and Bedworth",
+    "value": "Nuneaton and Bedworth"
+  },
+  {
+    "label": "Torbay",
+    "value": "Torbay"
+  },
+  {
+    "label": "North Devon",
+    "value": "North Devon"
+  },
+  {
+    "label": "Greenwich",
+    "value": "Greenwich"
+  },
+  {
+    "label": "Three Rivers",
+    "value": "Three Rivers"
+  },
+  {
+    "label": "Highland",
+    "value": "Highland"
+  },
+  {
+    "label": "Runnymede",
+    "value": "Runnymede"
+  },
+  {
+    "label": "Maidstone",
+    "value": "Maidstone"
+  },
+  {
+    "label": "Breckland",
+    "value": "Breckland"
+  },
+  {
+    "label": "Doncaster",
+    "value": "Doncaster"
+  },
+  {
+    "label": "Camden",
+    "value": "Camden"
+  },
+  {
+    "label": "North Somerset",
+    "value": "North Somerset"
+  },
+  {
+    "label": "North Tyneside",
+    "value": "North Tyneside"
+  },
+  {
+    "label": "Stafford",
+    "value": "Stafford"
+  },
+  {
+    "label": "Wyre",
+    "value": "Wyre"
+  },
+  {
+    "label": "North Norfolk",
+    "value": "North Norfolk"
+  },
+  {
+    "label": "Adur",
+    "value": "Adur"
+  },
+  {
+    "label": "Tandridge",
+    "value": "Tandridge"
+  },
+  {
+    "label": "Hammersmith and Fulham",
+    "value": "Hammersmith and Fulham"
+  },
+  {
+    "label": "Falkirk",
+    "value": "Falkirk"
+  },
+  {
+    "label": "Carlisle",
+    "value": "Carlisle"
+  },
+  {
+    "label": "St Albans",
+    "value": "St Albans"
+  },
+  {
+    "label": "Harlow",
+    "value": "Harlow"
+  },
+  {
+    "label": "King's Lynn and West Norfolk",
+    "value": "King's Lynn and West Norfolk"
+  },
+  {
+    "label": "Castle Point",
+    "value": "Castle Point"
+  },
+  {
+    "label": "Ceredigion",
+    "value": "Ceredigion"
+  },
+  {
+    "label": "Redditch",
+    "value": "Redditch"
+  },
+  {
+    "label": "Test Valley",
+    "value": "Test Valley"
+  },
+  {
+    "label": "Rochdale",
+    "value": "Rochdale"
+  },
+  {
+    "label": "Maldon",
+    "value": "Maldon"
+  },
+  {
+    "label": "Thurrock",
+    "value": "Thurrock"
+  },
+  {
+    "label": "Oxford",
+    "value": "Oxford"
+  },
+  {
+    "label": "Orkney Islands",
+    "value": "Orkney Islands"
+  },
+  {
+    "label": "Ipswich",
+    "value": "Ipswich"
+  },
+  {
+    "label": "Kingston upon Hull, City of",
+    "value": "Kingston upon Hull, City of"
+  },
+  {
+    "label": "Redcar and Cleveland",
+    "value": "Redcar and Cleveland"
+  },
+  {
+    "label": "Blaby",
+    "value": "Blaby"
+  },
+  {
+    "label": "North East Derbyshire",
+    "value": "North East Derbyshire"
+  },
+  {
+    "label": "Cornwall",
+    "value": "Cornwall"
+  },
+  {
+    "label": "East Hampshire",
+    "value": "East Hampshire"
+  },
+  {
+    "label": "Tameside",
+    "value": "Tameside"
+  },
+  {
+    "label": "East Suffolk",
+    "value": "East Suffolk"
+  },
+  {
+    "label": "East Hertfordshire",
+    "value": "East Hertfordshire"
+  },
+  {
+    "label": "Derbyshire Dales",
+    "value": "Derbyshire Dales"
+  },
+  {
+    "label": "York",
+    "value": "York"
+  },
+  {
+    "label": "Warwick",
+    "value": "Warwick"
+  },
+  {
+    "label": "Torfaen",
+    "value": "Torfaen"
+  },
+  {
+    "label": "Chesterfield",
+    "value": "Chesterfield"
+  },
+  {
+    "label": "Burnley",
+    "value": "Burnley"
+  },
+  {
+    "label": "Tunbridge Wells",
+    "value": "Tunbridge Wells"
+  },
+  {
+    "label": "Broadland",
+    "value": "Broadland"
+  },
+  {
+    "label": "Mendip",
+    "value": "Mendip"
+  },
+  {
+    "label": "Isles of Scilly",
+    "value": "Isles of Scilly"
+  },
+  {
+    "label": "Waltham Forest",
+    "value": "Waltham Forest"
+  },
+  {
+    "label": "West Lancashire",
+    "value": "West Lancashire"
+  },
+  {
+    "label": "Kensington and Chelsea",
+    "value": "Kensington and Chelsea"
+  },
+  {
+    "label": "Wychavon",
+    "value": "Wychavon"
+  },
+  {
+    "label": "Rushcliffe",
+    "value": "Rushcliffe"
+  },
+  {
+    "label": "Ealing",
+    "value": "Ealing"
+  },
+  {
+    "label": "Dacorum",
+    "value": "Dacorum"
+  },
+  {
+    "label": "Oadby and Wigston",
+    "value": "Oadby and Wigston"
+  },
+  {
+    "label": "North Kesteven",
+    "value": "North Kesteven"
+  },
+  {
+    "label": "Cannock Chase",
+    "value": "Cannock Chase"
+  },
+  {
+    "label": "Malvern Hills",
+    "value": "Malvern Hills"
+  },
+  {
+    "label": "Bromley",
+    "value": "Bromley"
+  },
+  {
+    "label": "Guildford",
+    "value": "Guildford"
+  },
+  {
+    "label": "Monmouthshire",
+    "value": "Monmouthshire"
+  },
+  {
+    "label": "North East Lincolnshire",
+    "value": "North East Lincolnshire"
+  },
+  {
+    "label": "Wakefield",
+    "value": "Wakefield"
+  },
+  {
+    "label": "Plymouth",
+    "value": "Plymouth"
+  },
+  {
+    "label": "Worthing",
+    "value": "Worthing"
+  },
+  {
+    "label": "Sunderland",
+    "value": "Sunderland"
+  },
+  {
+    "label": "Bassetlaw",
+    "value": "Bassetlaw"
+  },
+  {
+    "label": "Crawley",
+    "value": "Crawley"
+  },
+  {
+    "label": "Calderdale",
+    "value": "Calderdale"
+  },
+  {
+    "label": "Lancaster",
+    "value": "Lancaster"
+  },
+  {
+    "label": "Manchester",
+    "value": "Manchester"
+  },
+  {
+    "label": "Cheltenham",
+    "value": "Cheltenham"
+  },
+  {
+    "label": "South Tyneside",
+    "value": "South Tyneside"
+  },
+  {
+    "label": "Dartford",
+    "value": "Dartford"
+  },
+  {
+    "label": "Inverclyde",
+    "value": "Inverclyde"
+  },
+  {
+    "label": "Scarborough",
+    "value": "Scarborough"
+  },
+  {
+    "label": "Eastbourne",
+    "value": "Eastbourne"
+  },
+  {
+    "label": "Uttlesford",
+    "value": "Uttlesford"
+  },
+  {
+    "label": "South Norfolk",
+    "value": "South Norfolk"
+  },
+  {
+    "label": "Rugby",
+    "value": "Rugby"
+  },
+  {
+    "label": "Wigan",
+    "value": "Wigan"
+  },
+  {
+    "label": "Somerset West and Taunton",
+    "value": "Somerset West and Taunton"
+  },
+  {
+    "label": "Rossendale",
+    "value": "Rossendale"
+  },
+  {
+    "label": "Clackmannanshire",
+    "value": "Clackmannanshire"
+  },
+  {
+    "label": "Luton",
+    "value": "Luton"
+  },
+  {
+    "label": "Watford",
+    "value": "Watford"
+  },
+  {
+    "label": "Southampton",
+    "value": "Southampton"
+  },
+  {
+    "label": "Dundee City",
+    "value": "Dundee City"
+  },
+  {
+    "label": "Bolton",
+    "value": "Bolton"
+  },
+  {
+    "label": "Cotswold",
+    "value": "Cotswold"
+  },
+  {
+    "label": "Cheshire West and Chester",
+    "value": "Cheshire West and Chester"
+  },
+  {
+    "label": "Middlesbrough",
+    "value": "Middlesbrough"
+  },
+  {
+    "label": "Sutton",
+    "value": "Sutton"
+  },
+  {
+    "label": "Spelthorne",
+    "value": "Spelthorne"
+  },
+  {
+    "label": "Croydon",
+    "value": "Croydon"
+  },
+  {
+    "label": "Colchester",
+    "value": "Colchester"
+  },
+  {
+    "label": "Canterbury",
+    "value": "Canterbury"
+  },
+  {
+    "label": "Southwark",
+    "value": "Southwark"
+  },
+  {
+    "label": "Chelmsford",
+    "value": "Chelmsford"
+  },
+  {
+    "label": "Newcastle-under-Lyme",
+    "value": "Newcastle-under-Lyme"
+  },
+  {
+    "label": "Moray",
+    "value": "Moray"
+  },
+  {
+    "label": "East Ayrshire",
+    "value": "East Ayrshire"
+  },
+  {
+    "label": "Mansfield",
+    "value": "Mansfield"
+  },
+  {
+    "label": "Nottingham",
+    "value": "Nottingham"
+  },
+  {
+    "label": "Staffordshire Moorlands",
+    "value": "Staffordshire Moorlands"
+  },
+  {
+    "label": "Rother",
+    "value": "Rother"
+  },
+  {
+    "label": "City of Edinburgh",
+    "value": "City of Edinburgh"
+  },
+  {
+    "label": "Havant",
+    "value": "Havant"
+  },
+  {
+    "label": "West Suffolk",
+    "value": "West Suffolk"
+  },
+  {
+    "label": "Powys",
+    "value": "Powys"
+  },
+  {
+    "label": "Lambeth",
+    "value": "Lambeth"
+  },
+  {
+    "label": "Barrow-in-Furness",
+    "value": "Barrow-in-Furness"
+  },
+  {
+    "label": "Dorset",
+    "value": "Dorset"
+  },
+  {
+    "label": "South Holland",
+    "value": "South Holland"
+  },
+  {
+    "label": "Vale of Glamorgan",
+    "value": "Vale of Glamorgan"
+  },
+  {
+    "label": "North Lanarkshire",
+    "value": "North Lanarkshire"
+  },
+  {
+    "label": "Hambleton",
+    "value": "Hambleton"
+  },
+  {
+    "label": "Ribble Valley",
+    "value": "Ribble Valley"
+  },
+  {
+    "label": "Sedgemoor",
+    "value": "Sedgemoor"
+  },
+  {
+    "label": "Ashford",
+    "value": "Ashford"
+  },
+  {
+    "label": "Flintshire",
+    "value": "Flintshire"
+  },
+  {
+    "label": "Redbridge",
+    "value": "Redbridge"
+  },
+  {
+    "label": "West Oxfordshire",
+    "value": "West Oxfordshire"
+  },
+  {
+    "label": "Folkestone and Hythe",
+    "value": "Folkestone and Hythe"
+  },
+  {
+    "label": "Woking",
+    "value": "Woking"
+  },
+  {
+    "label": "South Gloucestershire",
+    "value": "South Gloucestershire"
+  },
+  {
+    "label": "Forest of Dean",
+    "value": "Forest of Dean"
+  },
+  {
+    "label": "Mole Valley",
+    "value": "Mole Valley"
+  },
+  {
+    "label": "Eden",
+    "value": "Eden"
+  },
+  {
+    "label": "North West Leicestershire",
+    "value": "North West Leicestershire"
+  },
+  {
+    "label": "Preston",
+    "value": "Preston"
+  },
+  {
+    "label": "East Devon",
+    "value": "East Devon"
+  },
+  {
+    "label": "Hyndburn",
+    "value": "Hyndburn"
+  },
+  {
+    "label": "Fylde",
+    "value": "Fylde"
+  },
+  {
+    "label": "Allerdale",
+    "value": "Allerdale"
+  }
+]

@@ -87,6 +87,7 @@ export default function Map({ data }) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const newData = await response.json();
+        console.log("in the get request", newData);
         if (newData.rows.length === 0) {
           enqueueSnackbar(
             "Please enter a valid city or town to see your results",
