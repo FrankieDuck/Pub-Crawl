@@ -36,7 +36,6 @@ const county = "Aberdeen City";
 export async function getStaticProps() {
   const response = await fetch(`http://localhost:3001/pubs?county=${county}`);
   const data = await response.json();
-  console.log(data);
   return {
     props: {
       data,

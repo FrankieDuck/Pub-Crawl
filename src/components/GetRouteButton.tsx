@@ -1,12 +1,16 @@
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-export default function GetRouteButton({ newPubData, getRandomPubs }) {
+export default function GetRouteButton({
+  newPubData,
+  getRandomPubs,
+  toggleVisibility,
+}) {
   const pickEightPubs = (data, count) => {
     if (count > data.length) {
       return [];
     }
-    console.log("this is the data", data);
+
     const shuffledArray = [...data.rows].sort(() => Math.random() - 0.5);
 
     const coordinatesArray = shuffledArray
@@ -33,7 +37,10 @@ export default function GetRouteButton({ newPubData, getRandomPubs }) {
   return (
     <Stack direction="row" spacing={2}>
       <Button
-        onClick={() => pickEightPubs(newPubData, 8)}
+        onClick={() => {
+          pickEightPubs(newPubData, 8);
+          toggleVisibility();
+        }}
         variant="contained"
         style={{ width: "150px" }}
       >

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import Card from "@mui/material/Card";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -8,6 +9,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckBoxScore from "./CheckBoxScore";
 
 export default function RouteAccordion({ eightPubs }) {
+  const [pubName, setPubName] = useState("");
+
+  const handleRatingClick = (pubName: String) => {
+    setPubName(pubName);
+  };
   return (
     <div>
       <Accordion>
@@ -19,14 +25,16 @@ export default function RouteAccordion({ eightPubs }) {
           <Typography>Route</Typography>
         </AccordionSummary>
         <AccordionDetails style={{ overflowY: "auto", maxHeight: "500px" }}>
-          {/* <Typography>Here is your Pub Crawl! Starting at; </Typography> */}
-
           {eightPubs?.map((pub) => (
-            <Card key={pub.id} style={{ marginBottom: "20px" }}>
+            <Card
+              key={pub.id}
+              style={{ marginBottom: "20px" }}
+              onClick={() => handleRatingClick(pub.name)}
+            >
               <Typography>{pub.name}</Typography>
               <Typography>{pub.address}</Typography>
               <Typography>{pub.postcode}</Typography>
-              <CheckBoxScore />
+              <CheckBoxScore pubName={pubName} />
             </Card>
           ))}
         </AccordionDetails>

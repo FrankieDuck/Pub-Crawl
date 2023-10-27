@@ -23,7 +23,6 @@ export default function BasicTextFields({ getCountyValue }) {
 
   return (
     <>
-      {/* <TextField id="standard-basic" label="Standard" onKeyPress={onKeyPress} /> */}
       <Autocomplete
         disablePortal
         id="combo-box-demo"

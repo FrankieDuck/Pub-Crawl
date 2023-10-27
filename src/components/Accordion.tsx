@@ -46,7 +46,7 @@ export default function MapControlAccordion({
             paddingBottom: "15px",
           }}
         >
-          <GetRouteButton newPubData={newPubData} getRandomPubs={getRandomPubs} />
+          <GetRouteButton newPubData={newPubData} getRandomPubs={getRandomPubs}  toggleVisibility={toggleVisibility}/>
           <ShowRouteButton
             toggleVisibility={toggleVisibility}
             eightRouteMarkersVisible={eightRouteMarkersVisible}
