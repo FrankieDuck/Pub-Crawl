@@ -10,6 +10,7 @@ import RouteAccordion from "./RouteList";
 import ThemeButtons from "./ThemeButtons";
 import SkeletonLoader from "./SkeletonLoader";
 import { useSnackbar } from "notistack";
+import Radius from "./Radius";
 
 export default function Map({ data }) {
   const { enqueueSnackbar } = useSnackbar();
@@ -33,6 +34,9 @@ export default function Map({ data }) {
   const [allPubMarkersVisible, setAllPubMarkersVisible] = useState(false);
   const [eightRouteMarkersVisible, setEightRouteMarkersVisible] =
     useState(false);
+  const [radiusLevel, setRadiusLevel] = useState(1000);
+  const [radiusVisibility, setRadiusVisibility] = useState(false);
+  console.log(radiusVisibility);
 
   const [mapSize, setMapSize] = useState([0, 0]);
   const [mapBounds, setMapBounds] = useState([[0, 0]]);
@@ -67,6 +71,10 @@ export default function Map({ data }) {
     setEightRouteMarkersVisible((prevValue) => !prevValue);
   };
 
+  const handleRadiusVisibility = () => {
+    setRadiusVisibility((prevValue) => !prevValue);
+  };
+
   const handleThemeMode = (selectedTheme) => {
     setCurrentTheme(selectedTheme);
   };
@@ -75,13 +83,11 @@ export default function Map({ data }) {
     setCountyValue(value);
   };
 
-  const pubCrawlPressed = () => {
-    if (eightPubs) {
-      setEightRouteMarkersVisible((prevValue) => !prevValue);
-    }
+  const getRadiusLevel = (radiusValue) => {
+    setRadiusLevel(radiusValue);
   };
   // const opacityValue = allMarkersVisible ? 0 : 1;
-
+  console.log(newPubData);
   //fetch new pub data
   useEffect(() => {
     async function fetchData() {
@@ -205,6 +211,8 @@ export default function Map({ data }) {
               eightPubs={eightPubs}
               getAllMarkerVisibility={getAllMarkerVisibility}
               getCountyValue={getCountyValue}
+              getRadiusLevel={getRadiusLevel}
+              handleRadiusVisibility={handleRadiusVisibility}
             />
             <RouteAccordion eightPubs={eightPubs} />
             <ThemeButtons handleThemeMode={handleThemeMode} />
@@ -237,7 +245,7 @@ export default function Map({ data }) {
               {eightRouteMarkersVisible && (
                 <RouteLine routeCoordinates={routeCoordinates} />
               )}
-
+              {radiusVisibility && <Radius radiusLevel={radiusLevel} />}
               {eightRouteMarkersVisible &&
                 eightPubs?.map((pub) => (
                   <Marker

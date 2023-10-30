@@ -1,12 +1,10 @@
 import * as React from "react";
 import Slider from "@mui/material/Slider";
-import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 
-export default function OpacitySlider({ getOpacityLevel }) {
-
+export default function RadiusSlider({ getRadiusLevel, handleRadiusVisibility }) {
   const handleChange = (event, newValue) => {
-    console.log(newValue);
-    getOpacityLevel(newValue);
+    getRadiusLevel(newValue);
   };
 
   return (
@@ -18,11 +16,11 @@ export default function OpacitySlider({ getOpacityLevel }) {
         paddingBottom: "12px",
       }}
     >
-      <Typography>Map Opacity</Typography>
+      <Button variant="contained" onClick={handleRadiusVisibility}>Radius Size</Button>
       <Slider
-        min={0}
-        max={1}
-        step={0.1}
+        min={1000}
+        max={10000}
+        step={50}
         defaultValue={1}
         aria-label="Default"
         valueLabelDisplay="auto"
