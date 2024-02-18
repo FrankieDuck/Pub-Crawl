@@ -9,21 +9,22 @@ import ShowRouteButton from "./ShowRouteButton";
 import GetRouteButton from "./GetRouteButton";
 import ShowAllPubsButton from "./ShowAllPubsButton";
 import SearchBar from "./SearchBar";
-import RadiusSlider from "./RadiusSlider";
+import PubCountSelect from "./PubCountSelect";
+import { MapControlAccordionProps } from "./types";
 
 export default function MapControlAccordion({
-  pubData,
   getRandomPubs,
   toggleVisibility,
   eightRouteMarkersVisible,
   getOpacityLevel,
   eightPubs,
+  pubCount,
+  getPubCount,
   getAllMarkerVisibility,
   getCountyValue,
   newPubData,
-  getRadiusLevel,
-  handleRadiusVisibility
-}) {
+}: MapControlAccordionProps) {
+
   return (
     <div>
       <Accordion>
@@ -38,6 +39,7 @@ export default function MapControlAccordion({
           <Typography>Interact with the map using these controls</Typography>
         </AccordionDetails>
         <SearchBar getCountyValue={getCountyValue} />
+        <PubCountSelect getPubCount={getPubCount} />
         <OpacitySlider getOpacityLevel={getOpacityLevel} />
         <div
           style={{
@@ -51,6 +53,7 @@ export default function MapControlAccordion({
         >
           <GetRouteButton
             newPubData={newPubData}
+            pubCount={pubCount}
             getRandomPubs={getRandomPubs}
             toggleVisibility={toggleVisibility}
           />
@@ -62,9 +65,6 @@ export default function MapControlAccordion({
 
           <ShowAllPubsButton getAllMarkerVisibility={getAllMarkerVisibility} />
         </div>
-        <div>
-          <RadiusSlider getRadiusLevel={getRadiusLevel} handleRadiusVisibility={handleRadiusVisibility}/>
-        </div> 
       </Accordion>
     </div>
   );

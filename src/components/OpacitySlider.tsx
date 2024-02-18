@@ -1,12 +1,14 @@
 import * as React from "react";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
+import { OpacitySliderProps } from "./types";
 
-export default function OpacitySlider({ getOpacityLevel }) {
-
-  const handleChange = (event, newValue) => {
-    console.log(newValue);
-    getOpacityLevel(newValue);
+export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleChange = (event: Event, value: number | number[]) => {
+    if (typeof value === "number") {
+      getOpacityLevel(value);
+    }
   };
 
   return (

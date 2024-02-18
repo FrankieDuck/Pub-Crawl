@@ -1,21 +1,23 @@
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import { GetRouteButtonProps, PubsType } from "./types";
 
 export default function GetRouteButton({
   newPubData,
   getRandomPubs,
   toggleVisibility,
-}) {
-  const pickEightPubs = (data, count) => {
+  pubCount,
+}: GetRouteButtonProps) {
+  const pickEightPubs = (data: PubsType[], count: number) => {
     if (count > data.length) {
       return [];
     }
 
-    const shuffledArray = [...data.rows].sort(() => Math.random() - 0.5);
+    const shuffledArray = [...data].sort(() => Math.random() - 0.5);
 
     const coordinatesArray = shuffledArray
       .slice(0, count)
-      .map((pub) => [parseFloat(pub.latitude), parseFloat(pub.longitude)]);
+      .map((pub) => [pub.latitude, pub.longitude]);
 
     coordinatesArray.sort((a, b) => {
       const latitudeA = a[0];
@@ -23,7 +25,6 @@ export default function GetRouteButton({
       const longitudeA = a[1];
       const longitudeB = b[1];
 
-      // Compare first by latitude and then by longitude
       if (latitudeA !== latitudeB) {
         return latitudeA - latitudeB;
       } else {
@@ -31,14 +32,16 @@ export default function GetRouteButton({
       }
     });
 
-    getRandomPubs(shuffledArray.slice(0, count), coordinatesArray);
+    getRandomPubs(
+      shuffledArray.slice(0, count) as any,
+      coordinatesArray as any
+    );
   };
-
   return (
     <Stack direction="row" spacing={2}>
       <Button
         onClick={() => {
-          pickEightPubs(newPubData, 8);
+          pickEightPubs(newPubData as any, pubCount);
           toggleVisibility();
         }}
         variant="contained"

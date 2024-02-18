@@ -2,7 +2,11 @@ import { useState } from "react";
 import Rating from "@mui/material/Rating";
 import axios from "axios";
 
-export default function CheckBoxScore({ pubName }) {
+interface CheckBoxScoreProps {
+  pubName: string;
+}
+
+export default function CheckBoxScore({ pubName }: CheckBoxScoreProps) {
   const [value, setValue] = useState<number | null>(0);
 
   function generateUUID() {
@@ -16,8 +20,12 @@ export default function CheckBoxScore({ pubName }) {
       }
     );
   }
-
-  const handleRatingChange = (event, newValue, pubName) => {
+  const handleRatingChange = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    event: any,
+    newValue: number | null,
+    pubName: string
+  ) => {
     setValue(newValue);
     const randomUserIdentifier = generateUUID();
 

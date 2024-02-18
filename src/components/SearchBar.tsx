@@ -3,20 +3,22 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import locations from "../city.json";
 
-export default function BasicTextFields({ getCountyValue }) {
-  const handleInputChange = (e, newValue) => {
-    const selectedLocation = newValue.label;
-    console.log("the new selectedLocation", selectedLocation);
+interface SearchBarProps {
+  getCountyValue: (value: string) => void;
+}
+
+export default function SearchBar({ getCountyValue }: SearchBarProps) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleInputChange = (event: React.ChangeEvent<{}>, value: { label: string; value: string } | null) => {
+    const selectedLocation = value ? value.label : "";
     getCountyValue(selectedLocation);
   };
 
-  const handleEnterPress = (e) => {
+  const handleEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      const value = e.target.value;
-      console.log(value);
+      const value = (e.target as HTMLInputElement).value;
       e.preventDefault();
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-
       getCountyValue(capitalizedValue);
     }
   };
@@ -26,7 +28,7 @@ export default function BasicTextFields({ getCountyValue }) {
       <Autocomplete
         disablePortal
         id="combo-box-demo"
-        onChange={handleInputChange}
+        onChange={(event, value) => handleInputChange(event, value)}
         onKeyPress={handleEnterPress}
         options={locations}
         sx={{ paddingLeft: "5px", width: 300 }}

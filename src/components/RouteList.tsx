@@ -7,11 +7,16 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckBoxScore from "./CheckBoxScore";
+import { PubsType } from "./types";
 
-export default function RouteAccordion({ eightPubs }) {
+interface RouteAccordionProps {
+  eightPubs: PubsType[];
+}
+
+export default function RouteAccordion({ eightPubs }: RouteAccordionProps) {
   const [pubName, setPubName] = useState("");
 
-  const handleRatingClick = (pubName: String) => {
+  const handleRatingClick = (pubName: string) => {
     setPubName(pubName);
   };
   return (

@@ -2,6 +2,12 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
+interface ShowRouteButtonProps {
+  toggleVisibility: () => void;
+  eightRouteMarkersVisible: boolean;
+  eightPubs: number | number[];
+}
+
 export const selectedButtonStyle = {
   fontSize: "14px",
   color: "black",
@@ -20,7 +26,7 @@ export default function ShowRouteButton({
   toggleVisibility,
   eightRouteMarkersVisible,
   eightPubs,
-}) {
+}: ShowRouteButtonProps) {
   return (
     <Stack spacing={2} direction="row">
       <Button
@@ -30,7 +36,7 @@ export default function ShowRouteButton({
             : unselectedButtonStyle),
         }}
         onClick={toggleVisibility}
-        disabled={eightPubs.length <= 0}
+        disabled={(Array.isArray(eightPubs) ? eightPubs.length : 1) <= 0}
       >
         {eightRouteMarkersVisible ? "Hide Route" : "Show Route"}
       </Button>

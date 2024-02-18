@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useMap, useMapEvent } from "react-leaflet/hooks";
+import { useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Card from "@mui/material/Card";
@@ -10,13 +10,12 @@ import RouteAccordion from "./RouteList";
 import ThemeButtons from "./ThemeButtons";
 import SkeletonLoader from "./SkeletonLoader";
 import { useSnackbar } from "notistack";
-import Radius from "./Radius";
+import { CoordinatesType, PubsType, MapSizeType, ThemeType } from "./types";
 
-export default function Map({ data }) {
+export default function Map() {
   const { enqueueSnackbar } = useSnackbar();
-  const pubData = data.rows;
 
-  const [themes, setTheme] = useState({
+  const themes: ThemeType = {
     light: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
     satellite:
@@ -25,36 +24,40 @@ export default function Map({ data }) {
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
     BW: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png",
     whitewash: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+  };
+
+  const [countyValue, setCountyValue] = useState<string>("Cambridge");
+  const [currentTheme, setCurrentTheme] = useState<string>("light");
+  const [routeCoordinates, setRouteCoordinates] = useState<CoordinatesType>({
+    coordinates: [],
   });
-  const [countyValue, setCountyValue] = useState("Cambridge");
-  const [currentTheme, setCurrentTheme] = useState("light");
-  const [routeCoordinates, setRouteCoordinates] = useState([]);
-  const [eightPubs, setEightPubs] = useState([]);
-  const [opacityLevel, setOpacityLevel] = useState([]);
+  const [eightPubs, setEightPubs] = useState<PubsType[]>([]); // Initialize as an array
+  const [pubCount, setPubCount] = useState(5);
+  const [opacityLevel, setOpacityLevel] = useState<number>();
   const [allPubMarkersVisible, setAllPubMarkersVisible] = useState(false);
   const [eightRouteMarkersVisible, setEightRouteMarkersVisible] =
     useState(false);
-  const [radiusLevel, setRadiusLevel] = useState(1000);
-  const [radiusVisibility, setRadiusVisibility] = useState(false);
-  console.log(radiusVisibility);
 
   const [mapSize, setMapSize] = useState([0, 0]);
   const [mapBounds, setMapBounds] = useState([[0, 0]]);
 
   const [mapDataLoading, setMapDataLoading] = useState(true);
   const icon = L.icon({ iconUrl: "./images/pubIcon.png", iconSize: [30, 30] });
-  const [newPubData, setNewPubData] = useState();
+  const [newPubData, setNewPubData] = useState<PubsType[]>();
 
-  const MapComponent = ({ mapSize }) => {
+  const MapComponent = ({ mapSize }: MapSizeType) => {
     const map = useMap();
+
     useEffect(() => {
-      map.setView(mapSize);
-    }, [mapSize]);
+      const [latitude, longitude] = mapSize;
+
+      map.setView([latitude, longitude]);
+    }, [map, mapSize]);
 
     return null;
   };
 
-  const getRandomPubs = (pubs, pubCoordinates) => {
+  const getRandomPubs = (pubs: PubsType[], pubCoordinates: CoordinatesType) => {
     setEightPubs(pubs);
     setRouteCoordinates(pubCoordinates);
   };
@@ -63,7 +66,7 @@ export default function Map({ data }) {
     setAllPubMarkersVisible((prevValue) => !prevValue);
   };
 
-  const getOpacityLevel = (level) => {
+  const getOpacityLevel = (level: number) => {
     setOpacityLevel(level);
   };
 
@@ -71,23 +74,18 @@ export default function Map({ data }) {
     setEightRouteMarkersVisible((prevValue) => !prevValue);
   };
 
-  const handleRadiusVisibility = () => {
-    setRadiusVisibility((prevValue) => !prevValue);
-  };
-
-  const handleThemeMode = (selectedTheme) => {
+  const handleThemeMode = (selectedTheme: string) => {
     setCurrentTheme(selectedTheme);
   };
 
-  const getCountyValue = (value) => {
+  const getCountyValue = (value: string) => {
     setCountyValue(value);
   };
 
-  const getRadiusLevel = (radiusValue) => {
-    setRadiusLevel(radiusValue);
+  const getPubCount = (value: number) => {
+    setPubCount(value);
   };
-  // const opacityValue = allMarkersVisible ? 0 : 1;
-  console.log(newPubData);
+
   //fetch new pub data
   useEffect(() => {
     async function fetchData() {
@@ -98,8 +96,9 @@ export default function Map({ data }) {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const newData = await response.json();
-        if (newData.rows.length === 0) {
+        const resData = await response.json();
+        const newData = resData.rows;
+        if (newData.length === 0) {
           enqueueSnackbar(
             "Please enter a valid city or town to see your results",
             {
@@ -117,8 +116,8 @@ export default function Map({ data }) {
   //set map size and bounds
   useEffect(() => {
     if (newPubData) {
-      const xCoordinates = newPubData?.rows.map((item) => item.latitude);
-      const yCoordinates = newPubData?.rows.map((item) => item.longitude);
+      const xCoordinates = newPubData?.map((item) => item.latitude);
+      const yCoordinates = newPubData?.map((item) => item.longitude);
 
       const minX = Math.min(...xCoordinates);
       const maxX = Math.max(...xCoordinates);
@@ -190,7 +189,7 @@ export default function Map({ data }) {
           }}
         >
           <Card
-            style={{
+            sx={{
               display: "flex",
               flexDirection: "column",
               gap: "5px",
@@ -205,14 +204,12 @@ export default function Map({ data }) {
               getRandomPubs={getRandomPubs}
               toggleVisibility={handleAllMarkersVisibility}
               eightRouteMarkersVisible={eightRouteMarkersVisible}
-              handleThemeMode={handleThemeMode}
-              theme={currentTheme}
               getOpacityLevel={getOpacityLevel}
               eightPubs={eightPubs}
+              getPubCount={getPubCount}
+              pubCount={pubCount}
               getAllMarkerVisibility={getAllMarkerVisibility}
               getCountyValue={getCountyValue}
-              getRadiusLevel={getRadiusLevel}
-              handleRadiusVisibility={handleRadiusVisibility}
             />
             <RouteAccordion eightPubs={eightPubs} />
             <ThemeButtons handleThemeMode={handleThemeMode} />
@@ -229,23 +226,21 @@ export default function Map({ data }) {
             }}
           >
             <MapContainer
-              center={mapSize}
-              // maxBounds={mapBounds}
+              center={mapSize as any}
               zoom={14}
               minZoom={12}
               scrollWheelZoom={true}
+              maxBounds={mapBounds as any}
             >
               <MapComponent mapSize={mapSize} />
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url={themes[currentTheme]}
                 opacity={opacityLevel}
-                style={{ height: "550px" }}
               />
               {eightRouteMarkersVisible && (
-                <RouteLine routeCoordinates={routeCoordinates} />
+                <RouteLine routeCoordinates={routeCoordinates as any} />
               )}
-              {radiusVisibility && <Radius radiusLevel={radiusLevel} />}
               {eightRouteMarkersVisible &&
                 eightPubs?.map((pub) => (
                   <Marker
@@ -265,7 +260,7 @@ export default function Map({ data }) {
 
               {allPubMarkersVisible &&
                 !eightRouteMarkersVisible &&
-                newPubData.rows?.map((pub) => (
+                newPubData?.map((pub: PubsType) => (
                   <Marker
                     key={pub.id}
                     position={[pub.latitude, pub.longitude]}

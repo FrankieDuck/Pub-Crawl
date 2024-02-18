@@ -1,8 +1,18 @@
 import Button from "@mui/material/Button";
 
-export default function ShowAllPubsButton({ getAllMarkerVisibility }) {
+interface ShowAllPubsButtonProps {
+  getAllMarkerVisibility: () => void;
+}
+
+export default function ShowAllPubsButton({
+  getAllMarkerVisibility,
+}: ShowAllPubsButtonProps) {
   return (
-    <Button style={{ width: "150px"}} onClick={getAllMarkerVisibility} variant="contained">
+    <Button
+      style={{ width: "150px" }}
+      onClick={getAllMarkerVisibility}
+      variant="contained"
+    >
       Show All
     </Button>
   );

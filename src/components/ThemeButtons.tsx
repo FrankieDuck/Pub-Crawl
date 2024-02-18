@@ -1,8 +1,12 @@
 import React from "react";
 import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
 import "@fortawesome/fontawesome-free/css/all.css";
+interface ThemeButtonsProps {
+  handleThemeMode: (selectedTheme: string) => void;
+}
 
-export default function ThemeButtons({ handleThemeMode }) {
+export default function ThemeButtons({ handleThemeMode }: ThemeButtonsProps) {
   const themes = [
     { name: "light", icon: "fa-regular fa-sun", color: "white" },
     { name: "dark", icon: "fa-regular fa-moon", color: "black" },
@@ -14,11 +18,13 @@ export default function ThemeButtons({ handleThemeMode }) {
 
   return (
     <Card style={{ paddingBottom: "12px", background: "#c5cad1" }}>
+     <Typography sx={{padding: "10px", }}>Map Themes</Typography>
       <ul className="theme-list">
         {themes.map((theme) => (
-          <li className="theme-item"
+          <li
+            className="theme-item"
             key={theme.name}
-            style={{ "--color": theme.color }}
+            style={{ "--color": theme.color } as React.CSSProperties}
             onClick={() => handleThemeMode(theme.name)}
           >
             <i className={theme.icon}></i>
