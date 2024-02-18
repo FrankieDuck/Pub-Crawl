@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import Rating from "@mui/material/Rating";
 import axios from "axios";
@@ -20,9 +21,9 @@ export default function CheckBoxScore({ pubName }: CheckBoxScoreProps) {
       }
     );
   }
+
   const handleRatingChange = (
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    event: any,
+    _event: any,
     newValue: number | null,
     pubName: string
   ) => {

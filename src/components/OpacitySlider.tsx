@@ -4,8 +4,7 @@ import Typography from "@mui/material/Typography";
 import { OpacitySliderProps } from "./types";
 
 export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleChange = (event: Event, value: number | number[]) => {
+  const handleChange = (_event: Event, value: number | number[]) => {
     if (typeof value === "number") {
       getOpacityLevel(value);
     }

@@ -8,8 +8,10 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({ getCountyValue }: SearchBarProps) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleInputChange = (event: React.ChangeEvent<{}>, value: { label: string; value: string } | null) => {
+  const handleInputChange = (
+    _event: React.ChangeEvent<{}>,
+    value: { label: string; value: string } | null
+  ) => {
     const selectedLocation = value ? value.label : "";
     getCountyValue(selectedLocation);
   };

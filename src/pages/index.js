@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from "react";
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import { SnackbarProvider } from "notistack";
@@ -10,7 +12,7 @@ const Map = dynamic(
   },
   {
     loading: () => <p>A map is loading</p>,
-    ssr: false, // This line is important. It's what prevents server-side render
+    ssr: false,
   }
 );
 
