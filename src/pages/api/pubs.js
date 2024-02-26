@@ -22,4 +22,14 @@ const fetchDataFromDB = async () => {
   }
 };
 
-export default fetchDataFromDB;
+export const dynamic = "force-dynamic";
+export const GET = async (request) => {
+  try {
+    const data = await fetchDataFromDB(); // Reuse the fetchDataFromDB function
+    console.log("the data", data);
+
+    return data;
+  } catch (error) {
+    return new Response("Failed to fetch data", { status: 500 });
+  }
+};
