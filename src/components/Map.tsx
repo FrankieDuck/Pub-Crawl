@@ -18,7 +18,6 @@ import {
 } from "./types";
 
 export default function Map({ data }: { data: PubsType[] }) {
-  const dynamic = "force-dynamic";
   const themes: ThemeType = {
     light: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
