@@ -12,13 +12,12 @@ export default function ThemeButtons({ handleThemeMode }: ThemeButtonsProps) {
     { name: "dark", icon: "fa-regular fa-moon", color: "black" },
     { name: "satellite", icon: "fa-solid fa-satellite", color: "#78c257" },
     { name: "sunshine", icon: "fa-solid fa-spa", color: "#FAEFD3" },
-    { name: "B&W", icon: "fa-solid fa-circle-half-stroke", color: "#ff9000" },
     { name: "whitewash", icon: "fa-brands fa-accusoft", color: "#ff5a5f" },
   ];
 
   return (
     <Card style={{ paddingBottom: "12px", background: "#c5cad1" }}>
-     <Typography sx={{padding: "10px", }}>Map Themes</Typography>
+      <Typography sx={{ padding: "10px" }}>Map Themes</Typography>
       <ul className="theme-list">
         {themes.map((theme) => (
           <li

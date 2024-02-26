@@ -9,12 +9,15 @@ import MapControlAccordion from "./Accordion";
 import RouteAccordion from "./RouteList";
 import ThemeButtons from "./ThemeButtons";
 import SkeletonLoader from "./SkeletonLoader";
-import { useSnackbar } from "notistack";
-import { CoordinatesType, PubsType, MapSizeType, ThemeType } from "./types";
+import {
+  CoordinatesType,
+  PubsType,
+  MapSizeType,
+  ThemeType,
+  GroupedData,
+} from "./types";
 
-export default function Map() {
-  const { enqueueSnackbar } = useSnackbar();
-
+export default function Map({ data }: { data: PubsType[] }) {
   const themes: ThemeType = {
     light: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
@@ -22,16 +25,15 @@ export default function Map() {
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     sunshine:
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
-    BW: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png",
     whitewash: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   };
 
-  const [countyValue, setCountyValue] = useState<string>("Cambridge");
+  const [countyValue, setCountyValue] = useState<string>("City of London");
   const [currentTheme, setCurrentTheme] = useState<string>("light");
   const [routeCoordinates, setRouteCoordinates] = useState<CoordinatesType>({
     coordinates: [],
   });
-  const [eightPubs, setEightPubs] = useState<PubsType[]>([]); // Initialize as an array
+  const [eightPubs, setEightPubs] = useState<PubsType[]>([]);
   const [pubCount, setPubCount] = useState(5);
   const [opacityLevel, setOpacityLevel] = useState<number>();
   const [allPubMarkersVisible, setAllPubMarkersVisible] = useState(false);
@@ -43,7 +45,7 @@ export default function Map() {
 
   const [mapDataLoading, setMapDataLoading] = useState(true);
   const icon = L.icon({ iconUrl: "./images/pubIcon.png", iconSize: [30, 30] });
-  const [newPubData, setNewPubData] = useState<PubsType[]>();
+  const [newPubData, setNewPubData] = useState<PubsType[]>(data);
 
   const MapComponent = ({ mapSize }: MapSizeType) => {
     const map = useMap();
@@ -56,6 +58,19 @@ export default function Map() {
 
     return null;
   };
+
+  useEffect(() => {
+    const groupedData: GroupedData = data.reduce((acc: GroupedData, obj) => {
+      const county = obj.county;
+      if (!acc[county]) {
+        acc[county] = [];
+      }
+      acc[county].push(obj);
+      return acc;
+    }, {});
+
+    setNewPubData(groupedData[countyValue]);
+  }, [countyValue]);
 
   const getRandomPubs = (pubs: PubsType[], pubCoordinates: CoordinatesType) => {
     setEightPubs(pubs);
@@ -85,33 +100,6 @@ export default function Map() {
   const getPubCount = (value: number) => {
     setPubCount(value);
   };
-
-  //fetch new pub data
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `http://localhost:3001/pubs?county=${countyValue}`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const resData = await response.json();
-        const newData = resData.rows;
-        if (newData.length === 0) {
-          enqueueSnackbar(
-            "Please enter a valid city or town to see your results",
-            {
-              variant: "warning",
-            }
-          );
-        }
-        setNewPubData(newData);
-      } catch (error) {}
-    }
-
-    fetchData();
-  }, [countyValue]);
 
   //set map size and bounds
   useEffect(() => {

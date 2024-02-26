@@ -2,6 +2,7 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
+import fetchDataFromDB from "./api/pubs";
 import { SnackbarProvider } from "notistack";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,14 +34,20 @@ export default function Home({ data }) {
   );
 }
 
-const county = "Aberdeen City";
-
-export async function getStaticProps() {
-  const response = await fetch(`http://localhost:3001/pubs?county=${county}`);
-  const data = await response.json();
-  return {
-    props: {
-      data,
-    },
-  };
+export async function getServerSideProps() {
+  try {
+    const data = await fetchDataFromDB();
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return {
+      props: {
+        data: [],
+      },
+    };
+  }
 }

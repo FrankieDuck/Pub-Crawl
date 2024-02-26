@@ -12,6 +12,10 @@ export interface PubsType {
   county: string;
 }
 
+export interface GroupedData {
+  [key: string]: PubsType[];
+}
+
 type GetRandomPubsType = (
   pubs: PubsType[],
   pubCoordinates: CoordinatesType
