@@ -8,10 +8,11 @@ const pool = new Pool({
   port: process.env.PG_PORT,
 });
 
-const fetchDataFromDB = async (limit) => {
+export const dynamic = "force-dynamic";
+const fetchDataFromDB = async () => {
   try {
     const client = await pool.connect();
-    const result = await client.query(`SELECT * FROM "allData" LIMIT ${limit}`);
+    const result = await client.query(`SELECT * FROM "allData"`);
     const data = result.rows;
 
     client.release();
@@ -22,13 +23,4 @@ const fetchDataFromDB = async (limit) => {
   }
 };
 
-export const dynamic = "force-dynamic";
-export const GET = async (request) => {
-  try {
-    const data = await fetchDataFromDB(23000); // Fetching only 50 rows as an example
-    console.log("the data", data);
-    return data;
-  } catch (error) {
-    return new Response("Failed to fetch data", { status: 500 });
-  }
-};
+export default fetchDataFromDB;

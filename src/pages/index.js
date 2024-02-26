@@ -2,8 +2,10 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
-import { GET } from "./api/pubs";
+import fetchDataFromDB from "./api/pubs";
 import { SnackbarProvider } from "notistack";
+
+const dynamics = "force-dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,7 +38,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   try {
-    const data = await GET();
+    const data = await fetchDataFromDB();
     return {
       props: {
         data,
