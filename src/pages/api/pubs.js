@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { Pool } from "pg";
 
 const pool = new Pool({
@@ -7,12 +10,13 @@ const pool = new Pool({
   password: process.env.PG_PASSWORD,
   port: process.env.PG_PORT,
 });
+console.log("Pool:", pool);
 
-export const dynamic = "force-dynamic";
 const fetchDataFromDB = async () => {
   try {
     const client = await pool.connect();
-    const result = await client.query(`SELECT * FROM "allData"`);
+    const result = await client.query(`SELECT * FROM "your_table";
+    `);
     const data = result.rows;
 
     client.release();
