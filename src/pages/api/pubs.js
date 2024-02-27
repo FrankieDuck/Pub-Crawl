@@ -11,7 +11,7 @@ const pool = new Pool({
   port: process.env.PG_PORT,
 });
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 const fetchDataFromDB = async () => {
   try {

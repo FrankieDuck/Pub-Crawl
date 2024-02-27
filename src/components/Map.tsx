@@ -60,16 +60,18 @@ export default function Map({ data }: { data: PubsType[] }) {
   };
 
   useEffect(() => {
-    const groupedData: GroupedData = data.reduce((acc: GroupedData, obj) => {
-      const county = obj.county;
-      if (!acc[county]) {
-        acc[county] = [];
-      }
-      acc[county].push(obj);
-      return acc;
-    }, {});
+    if (data) {
+      const groupedData: GroupedData = data?.reduce((acc: GroupedData, obj) => {
+        const county = obj.county;
+        if (!acc[county]) {
+          acc[county] = [];
+        }
+        acc[county].push(obj);
+        return acc;
+      }, {});
 
-    setNewPubData(groupedData[countyValue]);
+      setNewPubData(groupedData[countyValue]);
+    }
   }, [countyValue]);
 
   const getRandomPubs = (pubs: PubsType[], pubCoordinates: CoordinatesType) => {
