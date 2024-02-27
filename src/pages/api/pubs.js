@@ -1,7 +1,8 @@
 import dotenv from "dotenv";
-dotenv.config();
-
+import dynamic from "next/dynamic";
 import { Pool } from "pg";
+
+dotenv.config();
 
 const pool = new Pool({
   user: process.env.PG_USER,
@@ -10,7 +11,8 @@ const pool = new Pool({
   password: process.env.PG_PASSWORD,
   port: process.env.PG_PORT,
 });
-console.log("Pool:", pool);
+
+const dynamic = "force-dynamic";
 
 const fetchDataFromDB = async () => {
   try {
