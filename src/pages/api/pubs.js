@@ -1,5 +1,4 @@
 import dotenv from "dotenv";
-import dynamic from "next/dynamic";
 import { Pool } from "pg";
 
 dotenv.config();
@@ -12,7 +11,7 @@ const pool = new Pool({
   port: process.env.PG_PORT,
 });
 
-const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 const fetchDataFromDB = async () => {
   try {
