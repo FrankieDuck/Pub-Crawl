@@ -1,8 +1,10 @@
 import { Pool } from "pg";
 
 const pool = new Pool({
-  connectionString:
-    "postgres://bnlshkuo:W2AMAjGnbgXnz1gCkLmNWzX5W9mW6fUW@flora.db.elephantsql.com/bnlshkuo",
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
 });
 
 export default async function fetchDataCounty(req, res) {
