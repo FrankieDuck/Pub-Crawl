@@ -9,15 +9,9 @@ import MapControlAccordion from "./Accordion";
 import RouteAccordion from "./RouteList";
 import ThemeButtons from "./ThemeButtons";
 import SkeletonLoader from "./SkeletonLoader";
-import {
-  CoordinatesType,
-  PubsType,
-  MapSizeType,
-  ThemeType,
-  GroupedData,
-} from "./types";
+import { CoordinatesType, PubsType, MapSizeType, ThemeType } from "./types";
 
-export default function Map({ data }: { data: PubsType[] }) {
+export default function Map() {
   const themes: ThemeType = {
     light: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
@@ -28,7 +22,7 @@ export default function Map({ data }: { data: PubsType[] }) {
     whitewash: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   };
 
-  const [countyValue, setCountyValue] = useState<string>("City of London");
+  const [countyValue, setCountyValue] = useState<string>("East Cambridgeshire");
   const [currentTheme, setCurrentTheme] = useState<string>("light");
   const [routeCoordinates, setRouteCoordinates] = useState<CoordinatesType>({
     coordinates: [],
@@ -45,7 +39,7 @@ export default function Map({ data }: { data: PubsType[] }) {
 
   const [mapDataLoading, setMapDataLoading] = useState(true);
   const icon = L.icon({ iconUrl: "./images/pubIcon.png", iconSize: [30, 30] });
-  const [newPubData, setNewPubData] = useState<PubsType[]>(data);
+  const [newPubData, setNewPubData] = useState<PubsType[]>([]);
 
   const MapComponent = ({ mapSize }: MapSizeType) => {
     const map = useMap();
@@ -60,17 +54,30 @@ export default function Map({ data }: { data: PubsType[] }) {
   };
 
   useEffect(() => {
-    if (data) {
-      const groupedData: GroupedData = data?.reduce((acc: GroupedData, obj) => {
-        const county = obj.county;
-        if (!acc[county]) {
-          acc[county] = [];
-        }
-        acc[county].push(obj);
-        return acc;
-      }, {});
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/fetchDataCounty", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ county: countyValue, limit: 500 }),
+        });
 
-      setNewPubData(groupedData[countyValue]);
+        if (response.ok) {
+          const data = await response.json();
+
+          setNewPubData(data.data);
+        } else {
+          throw new Error("Failed to fetch data");
+        }
+      } catch (error: any) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    if (countyValue) {
+      fetchData();
     }
   }, [countyValue]);
 
@@ -168,13 +175,10 @@ export default function Map({ data }: { data: PubsType[] }) {
           sx={{
             display: "flex",
             width: "fit-content",
-            maxWidth: "2050px",
-            paddingRight: "12px",
-            paddingLeft: "8px",
-            marginLeft: "18px",
-            marginTop: "18px",
-            paddingBottom: "10px",
-            height: "900px",
+            maxWidth: "98vw",
+            maxHeight: "97vh",
+            padding: "0vh 1vw",
+            margin: ".5vw 1vw",
             backgroundColor: "#586261",
           }}
         >
@@ -184,8 +188,8 @@ export default function Map({ data }: { data: PubsType[] }) {
               flexDirection: "column",
               gap: "5px",
               width: "fit-content",
-              marginTop: "10px",
-              maxWidth: "335px",
+              marginTop: "1vh",
+              maxWidth: "90vw",
               backgroundColor: "#83878D",
             }}
           >

@@ -13,14 +13,14 @@ const pool = new Pool({
 
 export const dynamic = "force-dynamic";
 
-const fetchDataFromDB = async (limit = 500) => {
+const fetchDataFromDB = async (limit = 500, county) => {
   try {
     const client = await pool.connect();
 
-    // Use the LIMIT clause to retrieve a specific number of records
-    const result = await client.query(`SELECT * FROM "your_table" LIMIT $1`, [
-      limit,
-    ]);
+    const result = await client.query(
+      `SELECT * FROM "your_table" WHERE county = $1 LIMIT $2`,
+      [county, limit]
+    );
 
     const data = result.rows;
     client.release();
