@@ -29,7 +29,6 @@ type GetCountyValueType = (value: string) => void;
 export interface MapControlAccordionProps {
   getRandomPubs: GetRandomPubsType;
   toggleVisibility: ToggleVisibilityType;
-  getOpacityLevel: GetOpacityLevelType;
   getAllMarkerVisibility: GetAllMarkerVisibilityType;
   pubCount: number;
   eightPubs: any;
@@ -37,6 +36,7 @@ export interface MapControlAccordionProps {
   getPubCount: GetPubCountType;
   eightRouteMarkersVisible: boolean;
   getCountyValue: GetCountyValueType;
+  allPubMarkersVisible: boolean
 }
 
 export interface MapSizeType {
@@ -52,6 +52,8 @@ export interface GetRouteButtonProps {
   getRandomPubs: GetRandomPubsType;
   toggleVisibility: ToggleVisibilityType;
   pubCount: number;
+  eightRouteMarkersVisible: boolean
+  allPubMarkersVisible: boolean
 }
 
 export interface OpacitySliderProps {

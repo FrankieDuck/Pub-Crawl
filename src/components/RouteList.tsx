@@ -1,27 +1,41 @@
-import * as React from "react";
-import { useState } from "react";
-import Accordion from "@mui/material/Accordion";
-import Card from "@mui/material/Card";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+import React, { useState, useEffect } from "react";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Card,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckBoxScore from "./CheckBoxScore";
-import { PubsType } from "./types";
 
 interface RouteAccordionProps {
-  eightPubs: PubsType[];
+  eightPubs: { id: string; name: string; address: string; postcode: string }[];
+  eightRouteMarkersVisible: boolean;
 }
 
-export default function RouteAccordion({ eightPubs }: RouteAccordionProps) {
+export default function RouteAccordion({
+  eightPubs,
+  eightRouteMarkersVisible,
+}: RouteAccordionProps) {
   const [pubName, setPubName] = useState("");
+  const [expanded, setExpanded] = useState(eightRouteMarkersVisible);
+
+  useEffect(() => {
+    setExpanded(eightRouteMarkersVisible);
+  }, [eightRouteMarkersVisible]);
 
   const handleRatingClick = (pubName: string) => {
     setPubName(pubName);
   };
+
+  const handleAccordionChange = () => {
+    setExpanded((prev) => !prev);
+  };
+
   return (
     <div>
-      <Accordion>
+      <Accordion expanded={expanded} onChange={handleAccordionChange}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

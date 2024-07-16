@@ -2,6 +2,7 @@ import * as React from "react";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
 import { OpacitySliderProps } from "./types";
+import { Box } from "@mui/material";
 
 export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
   const handleChange = (_event: Event, value: number | number[]) => {
@@ -11,12 +12,12 @@ export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
   };
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: "flex",
         gap: "15px",
         paddingLeft: "8px",
-        paddingBottom: "12px",
+        paddingTop: "12px",
       }}
     >
       <Typography>Map Opacity</Typography>
@@ -28,8 +29,8 @@ export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
         aria-label="Default"
         valueLabelDisplay="auto"
         onChange={handleChange}
-        style={{ maxWidth: "200px" }}
+        style={{ maxWidth: "200px", color: "black" }}
       />
-    </div>
+    </Box>
   );
 }

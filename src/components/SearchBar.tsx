@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import locations from "../city.json";
+import { Box } from "@mui/material";
 
 interface SearchBarProps {
   getCountyValue: (value: string) => void;
@@ -25,17 +26,22 @@ export default function SearchBar({ getCountyValue }: SearchBarProps) {
     }
   };
 
+  const defaultLocation = locations.find(
+    (location) => location.label === "City of London"
+  );
+
   return (
-    <>
+    <Box>
       <Autocomplete
+        fullWidth
         disablePortal
         id="combo-box-demo"
         onChange={(event, value) => handleInputChange(event, value)}
         onKeyPress={handleEnterPress}
         options={locations}
-        sx={{ paddingLeft: "5px", width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Locations" />}
+        renderInput={(params) => <TextField {...params} label="Location" />}
+        defaultValue={defaultLocation}
       />
-    </>
+    </Box>
   );
 }

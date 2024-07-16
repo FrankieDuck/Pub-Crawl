@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import fetchDataFromDB from "./api/pubs";
 import { SnackbarProvider } from "notistack";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const dynamics = "force-dynamic";
 
@@ -14,7 +16,18 @@ const Map = dynamic(
     return import("@/components/Map");
   },
   {
-    loading: () => <p>A map is loading</p>,
+    loading: () => (
+      <Box 
+        display="flex" 
+        flexDirection="column" 
+        alignItems="center" 
+        justifyContent="center" 
+        height="100vh"
+      >
+        <CircularProgress />
+        <p>A map is loading</p>
+      </Box>
+    ),
     ssr: false,
   }
 );

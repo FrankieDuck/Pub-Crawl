@@ -8,6 +8,8 @@ export default function GetRouteButton({
   getRandomPubs,
   toggleVisibility,
   pubCount,
+  eightRouteMarkersVisible,
+  allPubMarkersVisible,
 }: GetRouteButtonProps) {
   const pickEightPubs = (data: PubsType[], count: number) => {
     if (count > data.length) {
@@ -41,14 +43,15 @@ export default function GetRouteButton({
   return (
     <Stack direction="row" spacing={2}>
       <Button
+        disabled={allPubMarkersVisible}
         onClick={() => {
           pickEightPubs(newPubData as any, pubCount);
           toggleVisibility();
         }}
         variant="contained"
-        style={{ width: "150px" }}
+        style={{ width: "150px", backgroundColor: "#33b249" }}
       >
-        Pub Crawl
+        {eightRouteMarkersVisible ? "Clear" : "  Pub Crawl"}
       </Button>
     </Stack>
   );

@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import RouteLine from "./RouteLine";
 import MapControlAccordion from "./Accordion";
 import RouteAccordion from "./RouteList";
-import ThemeButtons from "./ThemeButtons";
+import Settings from "./Settings";
 import SkeletonLoader from "./SkeletonLoader";
 import { CoordinatesType, PubsType, MapSizeType, ThemeType } from "./types";
 
@@ -22,7 +22,7 @@ export default function Map() {
     whitewash: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   };
 
-  const [countyValue, setCountyValue] = useState<string>("East Cambridgeshire");
+  const [countyValue, setCountyValue] = useState<string>("City of London");
   const [currentTheme, setCurrentTheme] = useState<string>("light");
   const [routeCoordinates, setRouteCoordinates] = useState<CoordinatesType>({
     coordinates: [],
@@ -87,6 +87,7 @@ export default function Map() {
   };
 
   const getAllMarkerVisibility = () => {
+    console.log("inside the mian coimp", allPubMarkersVisible);
     setAllPubMarkersVisible((prevValue) => !prevValue);
   };
 
@@ -174,103 +175,112 @@ export default function Map() {
         <Card
           sx={{
             display: "flex",
-            width: "fit-content",
-            maxWidth: "98vw",
-            maxHeight: "97vh",
-            padding: "0vh 1vw",
-            margin: ".5vw 1vw",
-            backgroundColor: "#586261",
+            flexDirection: "row",
+            gap: "10px",
+            margin: "5px",
+            padding: "10px",
+            backgroundColor: "#83878D",
           }}
         >
-          <Card
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "5px",
-              width: "fit-content",
-              marginTop: "1vh",
-              maxWidth: "90vw",
-              backgroundColor: "#83878D",
-            }}
-          >
-            <MapControlAccordion
-              newPubData={newPubData}
-              getRandomPubs={getRandomPubs}
-              toggleVisibility={handleAllMarkersVisibility}
-              eightRouteMarkersVisible={eightRouteMarkersVisible}
-              getOpacityLevel={getOpacityLevel}
-              eightPubs={eightPubs}
-              getPubCount={getPubCount}
-              pubCount={pubCount}
-              getAllMarkerVisibility={getAllMarkerVisibility}
-              getCountyValue={getCountyValue}
-            />
-            <RouteAccordion eightPubs={eightPubs} />
-            <ThemeButtons handleThemeMode={handleThemeMode} />
-          </Card>
-          <Card
-            sx={{
-              padding: "8px",
-              minWidth: "1520px",
-              maxWidth: "1520px",
-              marginLeft: "15px",
-              marginTop: "8px",
-              marginBottom: "15px",
-              height: "882px",
-            }}
-          >
-            <MapContainer
-              center={mapSize as any}
-              zoom={14}
-              minZoom={12}
-              scrollWheelZoom={true}
-              maxBounds={mapBounds as any}
+          {/* Controls Section */}
+          <div style={{ flex: "3", minWidth: "320px", maxWidth: "20%" }}>
+            <Card
+              sx={{
+                padding: "8px",
+                minHeight: "95vh",
+              }}
             >
-              <MapComponent mapSize={mapSize} />
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url={themes[currentTheme]}
-                opacity={opacityLevel}
+              <MapControlAccordion
+                newPubData={newPubData}
+                getRandomPubs={getRandomPubs}
+                toggleVisibility={handleAllMarkersVisibility}
+                eightRouteMarkersVisible={eightRouteMarkersVisible}
+                eightPubs={eightPubs}
+                getPubCount={getPubCount}
+                pubCount={pubCount}
+                getAllMarkerVisibility={getAllMarkerVisibility}
+                getCountyValue={getCountyValue}
+                allPubMarkersVisible={allPubMarkersVisible}
               />
-              {eightRouteMarkersVisible && (
-                <RouteLine routeCoordinates={routeCoordinates as any} />
-              )}
-              {eightRouteMarkersVisible &&
-                eightPubs?.map((pub) => (
-                  <Marker
-                    key={pub.id}
-                    position={[pub.latitude, pub.longitude]}
-                    icon={icon}
-                  >
-                    <Popup>
-                      <div>
-                        <h2>{pub.name}</h2>
-                        <p>{pub.address}</p>
-                        <p>{pub.postcode}</p>
-                      </div>
-                    </Popup>
-                  </Marker>
-                ))}
+              <RouteAccordion
+                eightPubs={eightPubs}
+                eightRouteMarkersVisible={eightRouteMarkersVisible}
+              />
+              <Settings
+                handleThemeMode={handleThemeMode}
+                getOpacityLevel={getOpacityLevel}
+              />
+            </Card>
+          </div>
 
-              {allPubMarkersVisible &&
-                !eightRouteMarkersVisible &&
-                newPubData?.map((pub: PubsType) => (
-                  <Marker
-                    key={pub.id}
-                    position={[pub.latitude, pub.longitude]}
-                    icon={icon}
-                  >
-                    <Popup>
-                      <div>
-                        <h2>{pub.name}</h2>
-                        <p>{pub.address}</p>
-                        <p>{pub.postcode}</p>
-                      </div>
-                    </Popup>
-                  </Marker>
-                ))}
-            </MapContainer>
-          </Card>
+          {/* Map Section */}
+          <div
+            style={{
+              flex: "7",
+              minWidth: "50%",
+              maxWidth: "80%",
+              minHeight: "95vh",
+            }}
+          >
+            <Card
+              sx={{
+                padding: "8px",
+                height: "95vh",
+              }}
+            >
+              <MapContainer
+                center={mapSize as any}
+                zoom={14}
+                minZoom={12}
+                scrollWheelZoom={true}
+                maxBounds={mapBounds as any}
+              >
+                <MapComponent mapSize={mapSize} />
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url={themes[currentTheme]}
+                  opacity={opacityLevel}
+                />
+                {eightRouteMarkersVisible && (
+                  <RouteLine routeCoordinates={routeCoordinates as any} />
+                )}
+                {eightRouteMarkersVisible &&
+                  eightPubs?.map((pub) => (
+                    <Marker
+                      key={pub.id}
+                      position={[pub.latitude, pub.longitude]}
+                      icon={icon}
+                    >
+                      <Popup>
+                        <div>
+                          <h2>{pub.name}</h2>
+                          <p>{pub.address}</p>
+                          <p>{pub.postcode}</p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  ))}
+
+                {allPubMarkersVisible &&
+                  !eightRouteMarkersVisible &&
+                  newPubData?.map((pub: PubsType) => (
+                    <Marker
+                      key={pub.id}
+                      position={[pub.latitude, pub.longitude]}
+                      icon={icon}
+                    >
+                      <Popup>
+                        <div>
+                          <h2>{pub.name}</h2>
+                          <p>{pub.address}</p>
+                          <p>{pub.postcode}</p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  ))}
+              </MapContainer>
+            </Card>
+          </div>
         </Card>
       )}
     </>

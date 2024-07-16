@@ -1,10 +1,8 @@
 import * as React from "react";
+import { Box } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import OpacitySlider from "./OpacitySlider";
 import ShowRouteButton from "./ShowRouteButton";
 import GetRouteButton from "./GetRouteButton";
 import ShowAllPubsButton from "./ShowAllPubsButton";
@@ -16,56 +14,63 @@ export default function MapControlAccordion({
   getRandomPubs,
   toggleVisibility,
   eightRouteMarkersVisible,
-  getOpacityLevel,
   eightPubs,
   pubCount,
   getPubCount,
   getAllMarkerVisibility,
   getCountyValue,
   newPubData,
+  allPubMarkersVisible,
 }: MapControlAccordionProps) {
-
   return (
-    <div>
+    <Box>
       <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>Map Controls</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>Interact with the map using these controls</Typography>
-        </AccordionDetails>
-        <SearchBar getCountyValue={getCountyValue} />
-        <PubCountSelect getPubCount={getPubCount} />
-        <OpacitySlider getOpacityLevel={getOpacityLevel} />
-        <div
-          style={{
+        <Box
+          sx={{
             display: "flex",
-            gap: "5px",
+            gap: "10px",
             flexDirection: "column",
-            alignContent: "space-around",
-            flexWrap: "wrap",
-            paddingBottom: "15px",
+            margin: "10px",
           }}
         >
-          <GetRouteButton
-            newPubData={newPubData}
-            pubCount={pubCount}
-            getRandomPubs={getRandomPubs}
-            toggleVisibility={toggleVisibility}
-          />
-          <ShowRouteButton
+          <Typography>Map Controls</Typography>
+
+          <AccordionDetails>
+            <Typography>Interact with the map using these controls</Typography>
+          </AccordionDetails>
+          <SearchBar getCountyValue={getCountyValue} />
+          <PubCountSelect getPubCount={getPubCount} />
+          <div
+            style={{
+              display: "flex",
+              gap: "5px",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              flexWrap: "wrap",
+            }}
+          >
+            <GetRouteButton
+              newPubData={newPubData}
+              pubCount={pubCount}
+              getRandomPubs={getRandomPubs}
+              toggleVisibility={toggleVisibility}
+              eightRouteMarkersVisible={eightRouteMarkersVisible}
+              allPubMarkersVisible={allPubMarkersVisible}
+            />
+            {/* <ShowRouteButton
             toggleVisibility={toggleVisibility}
             eightRouteMarkersVisible={eightRouteMarkersVisible}
             eightPubs={eightPubs}
-          />
+          /> */}
 
-          <ShowAllPubsButton getAllMarkerVisibility={getAllMarkerVisibility} />
-        </div>
+            <ShowAllPubsButton
+              getAllMarkerVisibility={getAllMarkerVisibility}
+              eightRouteMarkersVisible={eightRouteMarkersVisible}
+              allPubMarkersVisible={allPubMarkersVisible}
+            />
+          </div>
+        </Box>
       </Accordion>
-    </div>
+    </Box>
   );
 }
