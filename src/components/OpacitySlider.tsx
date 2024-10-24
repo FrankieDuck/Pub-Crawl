@@ -13,14 +13,14 @@ export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
 
   return (
     <Box
-      sx={{
-        display: "flex",
-        gap: "15px",
-        paddingLeft: "8px",
-        paddingTop: "12px",
-      }}
+    sx={{
+      display: 'flex',
+      gap: 2,
+      pl: 1, 
+      pt: 1.5 
+    }}
     >
-      <Typography>Map Opacity</Typography>
+      <Typography>Opacity</Typography>
       <Slider
         min={0}
         max={1}
@@ -29,7 +29,7 @@ export default function OpacitySlider({ getOpacityLevel }: OpacitySliderProps) {
         aria-label="Default"
         valueLabelDisplay="auto"
         onChange={handleChange}
-        style={{ maxWidth: "200px", color: "black" }}
+        sx={{  maxWidth: '75%', color: "#33b249" }}
       />
     </Box>
   );

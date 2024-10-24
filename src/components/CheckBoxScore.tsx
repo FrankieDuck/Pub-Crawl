@@ -11,7 +11,6 @@ export default function CheckBoxScore({ pubName }: CheckBoxScoreProps) {
   const [value, setValue] = useState<number | null>(0);
 
   function generateUUID() {
-    // A simple function to generate a random UUID (version 4)
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
       /[xy]/g,
       function (c) {
@@ -23,7 +22,7 @@ export default function CheckBoxScore({ pubName }: CheckBoxScoreProps) {
   }
 
   const handleRatingChange = (
-    _event: any,
+    _event: React.SyntheticEvent | Event,
     newValue: number | null,
     pubName: string
   ) => {

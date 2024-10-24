@@ -3,7 +3,6 @@ import { Box } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import ShowRouteButton from "./ShowRouteButton";
 import GetRouteButton from "./GetRouteButton";
 import ShowAllPubsButton from "./ShowAllPubsButton";
 import SearchBar from "./SearchBar";
@@ -14,7 +13,6 @@ export default function MapControlAccordion({
   getRandomPubs,
   toggleVisibility,
   eightRouteMarkersVisible,
-  eightPubs,
   pubCount,
   getPubCount,
   getAllMarkerVisibility,
@@ -34,7 +32,6 @@ export default function MapControlAccordion({
           }}
         >
           <Typography>Map Controls</Typography>
-
           <AccordionDetails>
             <Typography>Interact with the map using these controls</Typography>
           </AccordionDetails>
@@ -57,12 +54,6 @@ export default function MapControlAccordion({
               eightRouteMarkersVisible={eightRouteMarkersVisible}
               allPubMarkersVisible={allPubMarkersVisible}
             />
-            {/* <ShowRouteButton
-            toggleVisibility={toggleVisibility}
-            eightRouteMarkersVisible={eightRouteMarkersVisible}
-            eightPubs={eightPubs}
-          /> */}
-
             <ShowAllPubsButton
               getAllMarkerVisibility={getAllMarkerVisibility}
               eightRouteMarkersVisible={eightRouteMarkersVisible}

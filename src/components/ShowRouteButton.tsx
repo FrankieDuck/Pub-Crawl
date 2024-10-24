@@ -9,17 +9,17 @@ interface ShowRouteButtonProps {
 }
 
 export const selectedButtonStyle = {
-  fontSize: "14px",
+  fontSize: 14,
   color: "black",
   backgroundColor: "#E9EBED",
-  width: "150px",
+  width: 18, 
 };
 
 export const unselectedButtonStyle = {
-  fontSize: "14px",
+  fontSize: 14,
   color: "black",
   backgroundColor: "gray",
-  width: "150px",
+  width: 18, 
 };
 
 export default function ShowRouteButton({

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useMap } from "react-leaflet";
+import { Box } from "@mui/material";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Card from "@mui/material/Card";
@@ -34,10 +35,6 @@ export default function Map() {
   const [eightRouteMarkersVisible, setEightRouteMarkersVisible] =
     useState(false);
 
-  const [mapSize, setMapSize] = useState([0, 0]);
-  const [mapBounds, setMapBounds] = useState([[0, 0]]);
-
-  const [mapDataLoading, setMapDataLoading] = useState(true);
   const icon = L.icon({ iconUrl: "./images/pubIcon.png", iconSize: [30, 30] });
   const [newPubData, setNewPubData] = useState<PubsType[]>([]);
 
@@ -45,9 +42,10 @@ export default function Map() {
     const map = useMap();
 
     useEffect(() => {
-      const [latitude, longitude] = mapSize;
-
-      map.setView([latitude, longitude]);
+      if (mapSize && mapSize.length >= 2) {
+        const [latitude, longitude] = mapSize;
+        map.setView([latitude, longitude]);
+      }
     }, [map, mapSize]);
 
     return null;
@@ -87,7 +85,6 @@ export default function Map() {
   };
 
   const getAllMarkerVisibility = () => {
-    console.log("inside the mian coimp", allPubMarkersVisible);
     setAllPubMarkersVisible((prevValue) => !prevValue);
   };
 
@@ -112,59 +109,56 @@ export default function Map() {
   };
 
   //set map size and bounds
-  useEffect(() => {
-    if (newPubData) {
-      const xCoordinates = newPubData?.map((item) => item.latitude);
-      const yCoordinates = newPubData?.map((item) => item.longitude);
-
-      const minX = Math.min(...xCoordinates);
-      const maxX = Math.max(...xCoordinates);
-      const minY = Math.min(...yCoordinates);
-      const maxY = Math.max(...yCoordinates);
-
-      const bufferX: number = (maxX - minX) * 0.8;
-      const bufferY: number = (maxY - minY) * 0.8;
-
-      //to set the map bounds rather than the size
-      const bufferedMinX = minX - bufferX;
-      const bufferedMinY = minY - bufferY;
-      const bufferedMaxX = maxX + bufferX;
-      const bufferedMaxY = maxY + bufferY;
-
-      //to set the map size below
-      const medianX = (minX + maxX) / 2;
-      const medianY = (minY + maxY) / 2;
-
-      const isMapSizeValid = [medianY, medianX].every(
+  const { mapSize, mapDataLoading } = useMemo(() => {
+    if (!newPubData) {
+      return { mapSize: null, mapDataLoading: true };
+    }
+  
+    const xCoordinates = newPubData.map((item) => item.latitude);
+    const yCoordinates = newPubData.map((item) => item.longitude);
+  
+    const minX = Math.min(...xCoordinates);
+    const maxX = Math.max(...xCoordinates);
+    const minY = Math.min(...yCoordinates);
+    const maxY = Math.max(...yCoordinates);
+  
+    const bufferX = (maxX - minX) * 0.8;
+    const bufferY = (maxY - minY) * 0.8;
+  
+    const bufferedMinX = minX - bufferX;
+    const bufferedMinY = minY - bufferY;
+    const bufferedMaxX = maxX + bufferX;
+    const bufferedMaxY = maxY + bufferY;
+  
+    const medianX = (minX + maxX) / 2;
+    const medianY = (minY + maxY) / 2;
+  
+    const isMapSizeValid = [medianY, medianX].every(
+      (coord) =>
+        !isNaN(coord) &&
+        isFinite(coord) &&
+        coord !== null &&
+        coord !== Infinity
+    );
+  
+    const isMapBoundsValid = [
+      [bufferedMinY, bufferedMinX],
+      [bufferedMaxY, bufferedMaxX],
+    ].every((bounds) =>
+      bounds.every(
         (coord) =>
           !isNaN(coord) &&
           isFinite(coord) &&
           coord !== null &&
           coord !== Infinity
-      );
-
-      const isMapBoundsValid = [
-        [bufferedMinY, bufferedMinX],
-        [bufferedMaxY, bufferedMaxX],
-      ].every((bounds) =>
-        bounds.every(
-          (coord) =>
-            !isNaN(coord) &&
-            isFinite(coord) &&
-            coord !== null &&
-            coord !== Infinity
-        )
-      );
-
-      if (isMapSizeValid && isMapBoundsValid) {
-        setMapBounds([
-          [bufferedMinX, bufferedMinY],
-          [bufferedMaxX, bufferedMaxY],
-        ]);
-        setMapSize([medianX, medianY]);
-        setMapDataLoading(false);
-      }
+      )
+    );
+  
+    if (isMapSizeValid && isMapBoundsValid) {
+      return { mapSize: [medianX, medianY], mapDataLoading: false };
     }
+  
+    return { mapSize: null, mapDataLoading: true };
   }, [newPubData]);
 
   return (
@@ -182,8 +176,7 @@ export default function Map() {
             backgroundColor: "#83878D",
           }}
         >
-          {/* Controls Section */}
-          <div style={{ flex: "3", minWidth: "320px", maxWidth: "20%" }}>
+          <Box sx={{ flex: "3", minWidth: "320px", maxWidth: "20%" }}>
             <Card
               sx={{
                 padding: "8px",
@@ -211,11 +204,9 @@ export default function Map() {
                 getOpacityLevel={getOpacityLevel}
               />
             </Card>
-          </div>
-
-          {/* Map Section */}
-          <div
-            style={{
+          </Box>
+          <Box
+            sx={{
               flex: "7",
               minWidth: "50%",
               maxWidth: "80%",
@@ -233,9 +224,8 @@ export default function Map() {
                 zoom={14}
                 minZoom={12}
                 scrollWheelZoom={true}
-                maxBounds={mapBounds as any}
               >
-                <MapComponent mapSize={mapSize} />
+                <MapComponent  mapSize={mapSize || []} />
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url={themes[currentTheme]}
@@ -252,11 +242,11 @@ export default function Map() {
                       icon={icon}
                     >
                       <Popup>
-                        <div>
+                        <Box>
                           <h2>{pub.name}</h2>
                           <p>{pub.address}</p>
                           <p>{pub.postcode}</p>
-                        </div>
+                        </Box>
                       </Popup>
                     </Marker>
                   ))}
@@ -270,17 +260,17 @@ export default function Map() {
                       icon={icon}
                     >
                       <Popup>
-                        <div>
+                        <Box>
                           <h2>{pub.name}</h2>
                           <p>{pub.address}</p>
                           <p>{pub.postcode}</p>
-                        </div>
+                        </Box>
                       </Popup>
                     </Marker>
                   ))}
               </MapContainer>
             </Card>
-          </div>
+          </Box>
         </Card>
       )}
     </>

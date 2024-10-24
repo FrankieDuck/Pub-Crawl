@@ -18,15 +18,13 @@ export default function GetRouteButton({
 
     const shuffledArray = [...data].sort(() => Math.random() - 0.5);
 
-    const coordinatesArray = shuffledArray
+    const coordinatesArray: [number, number][] = shuffledArray
       .slice(0, count)
       .map((pub) => [pub.latitude, pub.longitude]);
 
     coordinatesArray.sort((a, b) => {
-      const latitudeA = a[0];
-      const latitudeB = b[0];
-      const longitudeA = a[1];
-      const longitudeB = b[1];
+      const [latitudeA, longitudeA] = a;
+      const [latitudeB, longitudeB] = b;
 
       if (latitudeA !== latitudeB) {
         return latitudeA - latitudeB;
@@ -36,22 +34,23 @@ export default function GetRouteButton({
     });
 
     getRandomPubs(
-      shuffledArray.slice(0, count) as any,
-      coordinatesArray as any
+      shuffledArray.slice(0, count),
+      { coordinates: coordinatesArray }
     );
   };
+
   return (
     <Stack direction="row" spacing={2}>
       <Button
         disabled={allPubMarkersVisible}
         onClick={() => {
-          pickEightPubs(newPubData as any, pubCount);
+          pickEightPubs(newPubData, pubCount);
           toggleVisibility();
         }}
         variant="contained"
         style={{ width: "150px", backgroundColor: "#33b249" }}
       >
-        {eightRouteMarkersVisible ? "Clear" : "  Pub Crawl"}
+        {eightRouteMarkersVisible ? "Clear" : "Pub Crawl"}
       </Button>
     </Stack>
   );

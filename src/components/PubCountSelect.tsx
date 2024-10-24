@@ -7,11 +7,11 @@ interface PubCountSelectProps {
   getPubCount: (value: number) => void;
 }
 
-const count = [1, 2, 3, 4, 5, 6, 7, 8];
+const pubCount = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export default function PubCountSelect({ getPubCount }: PubCountSelectProps) {
-  const handleChange = (event: any) => {
-    getPubCount(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    getPubCount(Number(event.target.value));
   };
 
   return (
@@ -24,9 +24,9 @@ export default function PubCountSelect({ getPubCount }: PubCountSelectProps) {
         onChange={handleChange}
         fullWidth
       >
-        {count.map((c) => (
-          <MenuItem key={c} value={c}>
-            {c}
+        {pubCount.map((count) => (
+          <MenuItem key={count} value={count}>
+            {count}
           </MenuItem>
         ))}
       </TextField>

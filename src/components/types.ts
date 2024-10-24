@@ -3,7 +3,7 @@ export interface CoordinatesType {
 }
 
 export interface PubsType {
-  id: number;
+  id: string;
   name: string;
   address: string;
   postcode: string;
@@ -40,7 +40,7 @@ export interface MapControlAccordionProps {
 }
 
 export interface MapSizeType {
-  mapSize: number[];
+  mapSize: number[] | null;
 }
 
 export interface ThemeType {
@@ -48,12 +48,12 @@ export interface ThemeType {
 }
 
 export interface GetRouteButtonProps {
-  newPubData: PubsType;
-  getRandomPubs: GetRandomPubsType;
-  toggleVisibility: ToggleVisibilityType;
+  newPubData: PubsType[];
+  getRandomPubs: (pubs: PubsType[], pubCoordinates: CoordinatesType) => void;
+  toggleVisibility: () => void;
   pubCount: number;
-  eightRouteMarkersVisible: boolean
-  allPubMarkersVisible: boolean
+  eightRouteMarkersVisible: boolean;
+  allPubMarkersVisible: boolean;
 }
 
 export interface OpacitySliderProps {

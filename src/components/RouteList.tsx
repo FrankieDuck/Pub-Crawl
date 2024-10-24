@@ -5,6 +5,7 @@ import {
   AccordionDetails,
   Typography,
   Card,
+  Box
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckBoxScore from "./CheckBoxScore";
@@ -34,7 +35,7 @@ export default function RouteAccordion({
   };
 
   return (
-    <div>
+    <Box>
       <Accordion expanded={expanded} onChange={handleAccordionChange}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -47,7 +48,7 @@ export default function RouteAccordion({
           {eightPubs?.map((pub) => (
             <Card
               key={pub.id}
-              style={{ marginBottom: "20px" }}
+              sx={{ mb: 2.5 }}
               onClick={() => handleRatingClick(pub.name)}
             >
               <Typography>{pub.name}</Typography>
@@ -58,6 +59,6 @@ export default function RouteAccordion({
           ))}
         </AccordionDetails>
       </Accordion>
-    </div>
+    </Box>
   );
 }
