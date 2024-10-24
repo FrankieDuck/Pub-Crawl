@@ -15,7 +15,13 @@ export default function ShowAllPubsButton({
   return (
     <Button
       disabled={eightRouteMarkersVisible}
-      sx={{ width: "150px", backgroundColor: "#33b249" }}
+      sx={{
+        width: "150px",
+        backgroundColor: "#33b249",
+        "&:hover": {
+          backgroundColor: "#33b249",
+        },
+      }}
       onClick={getAllMarkerVisibility}
       variant="contained"
     >

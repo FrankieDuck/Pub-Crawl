@@ -97,7 +97,10 @@ export default function Map() {
   };
 
   const handleThemeMode = (selectedTheme: string) => {
-    setCurrentTheme(selectedTheme);
+    const themeKey = selectedTheme.toLowerCase(); 
+    if (themes[themeKey]) {
+      setCurrentTheme(themeKey);
+    }
   };
 
   const getCountyValue = (value: string) => {
